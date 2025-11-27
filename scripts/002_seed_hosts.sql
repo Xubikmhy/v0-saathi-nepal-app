@@ -1,0 +1,185 @@
+-- Seed 15 unique host profiles with Nepali names
+-- Ages 20-26, various categories and locations
+
+INSERT INTO public.hosts (name, slug, age, contact_whatsapp, bio, location, gallery_urls, categories, status, profile_image_url)
+VALUES
+  (
+    'Aarav Sharma',
+    'aarav-sharma',
+    24,
+    '+977-9801234567',
+    'Experienced trekking guide with 5 years of expertise in the Annapurna region. Fluent in English, Hindi, and Nepali.',
+    'Pokhara',
+    ARRAY['/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300'],
+    ARRAY['Trekking', 'Adventure', 'Mountain Guide'],
+    'active',
+    '/placeholder.svg?height=500&width=400'
+  ),
+  (
+    'Priya Thapa',
+    'priya-thapa',
+    22,
+    '+977-9812345678',
+    'Cultural tour specialist focusing on heritage sites in Kathmandu Valley. Passionate about sharing Nepali traditions.',
+    'Kathmandu',
+    ARRAY['/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300'],
+    ARRAY['Cultural Tours', 'Heritage', 'City Guide'],
+    'active',
+    '/placeholder.svg?height=500&width=400'
+  ),
+  (
+    'Bikram Gurung',
+    'bikram-gurung',
+    26,
+    '+977-9823456789',
+    'Professional mountaineering guide certified by NMA. Summited multiple peaks including Island Peak and Mera Peak.',
+    'Namche Bazaar',
+    ARRAY['/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300'],
+    ARRAY['Mountaineering', 'High Altitude', 'Expedition'],
+    'active',
+    '/placeholder.svg?height=500&width=400'
+  ),
+  (
+    'Sita Rai',
+    'sita-rai',
+    21,
+    '+977-9834567890',
+    'Yoga and wellness retreat host specializing in traditional Nepali healing practices and meditation.',
+    'Pokhara',
+    ARRAY['/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300'],
+    ARRAY['Yoga', 'Wellness', 'Meditation'],
+    'active',
+    '/placeholder.svg?height=500&width=400'
+  ),
+  (
+    'Raj Tamang',
+    'raj-tamang',
+    25,
+    '+977-9845678901',
+    'Wildlife safari expert with extensive knowledge of Chitwan National Park. Specializes in bird watching and jungle treks.',
+    'Chitwan',
+    ARRAY['/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300'],
+    ARRAY['Wildlife', 'Safari', 'Bird Watching'],
+    'active',
+    '/placeholder.svg?height=500&width=400'
+  ),
+  (
+    'Maya Shrestha',
+    'maya-shrestha',
+    23,
+    '+977-9856789012',
+    'Food and culinary tour guide exploring the diverse flavors of Nepali cuisine. Cooking class instructor.',
+    'Kathmandu',
+    ARRAY['/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300'],
+    ARRAY['Food Tours', 'Cooking', 'Culinary'],
+    'active',
+    '/placeholder.svg?height=500&width=400'
+  ),
+  (
+    'Deepak Magar',
+    'deepak-magar',
+    24,
+    '+977-9867890123',
+    'Adventure sports specialist offering paragliding, bungee jumping, and rafting experiences in Nepal.',
+    'Pokhara',
+    ARRAY['/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300'],
+    ARRAY['Adventure Sports', 'Paragliding', 'Rafting'],
+    'active',
+    '/placeholder.svg?height=500&width=400'
+  ),
+  (
+    'Anita Limbu',
+    'anita-limbu',
+    20,
+    '+977-9878901234',
+    'Photography tour guide helping visitors capture the best shots of Nepal. Landscape and portrait specialist.',
+    'Bandipur',
+    ARRAY['/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300'],
+    ARRAY['Photography', 'Tours', 'Landscape'],
+    'active',
+    '/placeholder.svg?height=500&width=400'
+  ),
+  (
+    'Sunil Basnet',
+    'sunil-basnet',
+    26,
+    '+977-9889012345',
+    'Luxury travel concierge offering premium experiences including helicopter tours and exclusive accommodations.',
+    'Kathmandu',
+    ARRAY['/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300'],
+    ARRAY['Luxury Travel', 'Helicopter Tours', 'VIP Services'],
+    'active',
+    '/placeholder.svg?height=500&width=400'
+  ),
+  (
+    'Gita Adhikari',
+    'gita-adhikari',
+    22,
+    '+977-9890123456',
+    'Spiritual journey guide specializing in Buddhist monastery visits and Hindu temple pilgrimages.',
+    'Lumbini',
+    ARRAY['/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300'],
+    ARRAY['Spiritual', 'Pilgrimage', 'Buddhist Tours'],
+    'active',
+    '/placeholder.svg?height=500&width=400'
+  ),
+  (
+    'Prakash Karki',
+    'prakash-karki',
+    25,
+    '+977-9801234568',
+    'Mountain biking expert with routes across Kathmandu Valley and beyond. Equipment rental available.',
+    'Kathmandu',
+    ARRAY['/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300'],
+    ARRAY['Mountain Biking', 'Cycling', 'Adventure'],
+    'active',
+    '/placeholder.svg?height=500&width=400'
+  ),
+  (
+    'Sunita Lama',
+    'sunita-lama',
+    21,
+    '+977-9812345679',
+    'Traditional handicraft tour guide showcasing Nepali artisans and their crafts. Supports local communities.',
+    'Bhaktapur',
+    ARRAY['/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300'],
+    ARRAY['Handicrafts', 'Artisan Tours', 'Cultural'],
+    'active',
+    '/placeholder.svg?height=500&width=400'
+  ),
+  (
+    'Kiran Maharjan',
+    'kiran-maharjan',
+    23,
+    '+977-9823456790',
+    'Nightlife and entertainment guide for Kathmandu and Pokhara. Club tours and local music scene expert.',
+    'Kathmandu',
+    ARRAY['/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300'],
+    ARRAY['Nightlife', 'Entertainment', 'Music'],
+    'active',
+    '/placeholder.svg?height=500&width=400'
+  ),
+  (
+    'Roshani Pandey',
+    'roshani-pandey',
+    24,
+    '+977-9834567891',
+    'Family-friendly tour guide specializing in educational and fun experiences for travelers with children.',
+    'Pokhara',
+    ARRAY['/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300'],
+    ARRAY['Family Tours', 'Educational', 'Kids Activities'],
+    'active',
+    '/placeholder.svg?height=500&width=400'
+  ),
+  (
+    'Binod Thakuri',
+    'binod-thakuri',
+    26,
+    '+977-9845678902',
+    'Off-the-beaten-path specialist exploring remote villages and untouched regions of Nepal.',
+    'Mustang',
+    ARRAY['/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300', '/placeholder.svg?height=400&width=300'],
+    ARRAY['Remote Treks', 'Village Tours', 'Explorer'],
+    'active',
+    '/placeholder.svg?height=500&width=400'
+  );
