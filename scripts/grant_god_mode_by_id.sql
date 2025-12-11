@@ -13,3 +13,4 @@ BEGIN
 
   RAISE NOTICE 'User % has been granted God Mode access.', target_id;
 END $$;
+     

