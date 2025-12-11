@@ -75,6 +75,8 @@ export function AdminDashboard({
     { value: "users", label: "User Control", icon: UserCog },
   ]
 
+  const [activeTab, setActiveTab] = useState("overview");
+
   return (
     <div className="flex min-h-screen bg-muted/30">
       {/* Desktop Sidebar */}
@@ -85,20 +87,22 @@ export function AdminDashboard({
           </Link>
         </div>
         <nav className="flex-1 space-y-1 p-4">
-          <Tabs defaultValue="overview" orientation="vertical" className="w-full">
-            <TabsList className="flex h-auto w-full flex-col items-stretch bg-transparent">
-              {navItems.map((item) => (
-                <TabsTrigger
-                  key={item.value}
-                  value={item.value}
-                  className="justify-start gap-3 px-4 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-                >
-                  <item.icon className="h-5 w-5" />
-                  {item.label}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </Tabs>
+          <div className="flex w-full flex-col gap-1">
+            {navItems.map((item) => (
+              <Button
+                key={item.value}
+                variant={activeTab === item.value ? "secondary" : "ghost"}
+                className={`justify-start gap-3 px-4 py-6 ${activeTab === item.value
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    : "text-muted-foreground hover:text-foreground"
+                  }`}
+                onClick={() => setActiveTab(item.value)}
+              >
+                <item.icon className="h-5 w-5" />
+                {item.label}
+              </Button>
+            ))}
+          </div>
         </nav>
         <div className="border-t p-4">
           <div className="mb-4 text-sm text-muted-foreground">
@@ -131,9 +135,12 @@ export function AdminDashboard({
                 {navItems.map((item) => (
                   <Button
                     key={item.value}
-                    variant="ghost"
+                    variant={activeTab === item.value ? "secondary" : "ghost"}
                     className="w-full justify-start gap-3 mb-1"
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={() => {
+                      setActiveTab(item.value)
+                      setMobileMenuOpen(false)
+                    }}
                   >
                     <item.icon className="h-5 w-5" />
                     {item.label}
@@ -152,38 +159,11 @@ export function AdminDashboard({
 
         {/* Main Content */}
         <main className="flex-1 overflow-auto">
-          <Tabs defaultValue="overview" className="h-full">
-            {/* Hidden TabsList for mobile - controlled by sidebar */}
-            <div className="hidden">
-              <TabsList>
-                {navItems.map((item) => (
-                  <TabsTrigger key={item.value} value={item.value}>
-                    {item.label}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </div>
-
-            <TabsContent value="overview" className="m-0 h-full">
-              <AdminOverview stats={stats} hosts={hosts} blogs={blogs} />
-            </TabsContent>
-
-            <TabsContent value="hosts" className="m-0 h-full">
-              <AdminHosts hosts={hosts} onRefresh={refreshData} />
-            </TabsContent>
-
-            <TabsContent value="blogs" className="m-0 h-full">
-              <AdminBlogs blogs={blogs} onRefresh={refreshData} />
-            </TabsContent>
-
-            <TabsContent value="settings" className="m-0 h-full">
-              <AdminSettings settings={settings} onRefresh={refreshData} />
-            </TabsContent>
-
-            <TabsContent value="users" className="m-0 h-full">
-              <AdminUsers users={users} currentUserId={currentUser.id} onRefresh={refreshData} />
-            </TabsContent>
-          </Tabs>
+          {activeTab === "overview" && <AdminOverview stats={stats} hosts={hosts} blogs={blogs} />}
+          {activeTab === "hosts" && <AdminHosts hosts={hosts} onRefresh={refreshData} />}
+          {activeTab === "blogs" && <AdminBlogs blogs={blogs} onRefresh={refreshData} />}
+          {activeTab === "settings" && <AdminSettings settings={settings} onRefresh={refreshData} />}
+          {activeTab === "users" && <AdminUsers users={users} currentUserId={currentUser.id} onRefresh={refreshData} />}
         </main>
       </div>
     </div>
