@@ -1,3 +1,175 @@
 [00:00:07.831] Server  WARN     ⚠ Minimum recommended TypeScript version is v5.1.0, older versions can potentially be incompatible with Next.js. Detected: 5.0.2
 [00:00:07.913] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
 [00:00:09.584] Server  LOG      ✓ Ready in 7.6s
+[00:08:53.846] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\dezo\v0-saathi-nepal-app\node_modules\.pnpm\next@16.0.3_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\server\web\sandbox\context.js:322:60)
+    at D:\dezo\v0-saathi-nepal-app\.next\dev\server\edge\chunks\0f7e6_@supabase_auth-js_dist_module_b3e679b7._.js:565:23
+    at _handleRequest (D:\dezo\v0-saathi-nepal-app\.next\dev\server\edge\chunks\0f7e6_@supabase_auth-js_dist_module_b3e679b7._.js:919:24)
+    at _request (D:\dezo\v0-saathi-nepal-app\.next\dev\server\edge\chunks\0f7e6_@supabase_auth-js_dist_module_b3e679b7._.js:906:24)
+    at D:\dezo\v0-saathi-nepal-app\.next\dev\server\edge\chunks\0f7e6_@supabase_auth-js_dist_module_b3e679b7._.js:4766:295
+    at D:\dezo\v0-saathi-nepal-app\.next\dev\server\edge\chunks\0f7e6_@supabase_auth-js_dist_module_b3e679b7._.js:635:42
+    at D:\dezo\v0-saathi-nepal-app\.next\dev\server\edge\chunks\0f7e6_@supabase_auth-js_dist_module_b3e679b7._.js:647:11
+    at new Promise (<anonymous>)
+    at retryable (D:\dezo\v0-saathi-nepal-app\.next\dev\server\edge\chunks\0f7e6_@supabase_auth-js_dist_module_b3e679b7._.js:629:21)
+    at SupabaseAuthClient._refreshAccessToken (D:\dezo\v0-saathi-nepal-app\.next\dev\server\edge\chunks\0f7e6_@supabase_auth-js_dist_module_b3e679b7._.js:4761:294)
+    at SupabaseAuthClient._callRefreshToken (D:\dezo\v0-saathi-nepal-app\.next\dev\server\edge\chunks\0f7e6_@supabase_auth-js_dist_module_b3e679b7._.js:4917:48)
+    at SupabaseAuthClient.__loadSession (D:\dezo\v0-saathi-nepal-app\.next\dev\server\edge\chunks\0f7e6_@supabase_auth-js_dist_module_b3e679b7._.js:4070:57)
+    at async SupabaseAuthClient._useSession (D:\dezo\v0-saathi-nepal-app\.next\dev\server\edge\chunks\0f7e6_@supabase_auth-js_dist_module_b3e679b7._.js:4000:28)
+    at async SupabaseAuthClient._emitInitialSession (D:\dezo\v0-saathi-nepal-app\.next\dev\server\edge\chunks\0f7e6_@supabase_auth-js_dist_module_b3e679b7._.js:4543:16) {
+  
+}
+[00:08:54.088] Server  ERROR   Error: fetch failed
+    at context.fetch (D:\dezo\v0-saathi-nepal-app\node_modules\.pnpm\next@16.0.3_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\server\web\sandbox\context.js:322:60)
+    at D:\dezo\v0-saathi-nepal-app\.next\dev\server\edge\chunks\0f7e6_@supabase_auth-js_dist_module_b3e679b7._.js:565:23
+    at _handleRequest (D:\dezo\v0-saathi-nepal-app\.next\dev\server\edge\chunks\0f7e6_@supabase_auth-js_dist_module_b3e679b7._.js:919:24)
+    at _request (D:\dezo\v0-saathi-nepal-app\.next\dev\server\edge\chunks\0f7e6_@supabase_auth-js_dist_module_b3e679b7._.js:906:24)
+    at D:\dezo\v0-saathi-nepal-app\.next\dev\server\edge\chunks\0f7e6_@supabase_auth-js_dist_module_b3e679b7._.js:4766:295
+    at async D:\dezo\v0-saathi-nepal-app\.next\dev\server\edge\chunks\0f7e6_@supabase_auth-js_dist_module_b3e679b7._.js:635:36 {
+  
+}
+[00:08:59.348] Server  LOG      ○ Compiling / ...
+[00:09:19.539] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:20.647] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:09:20.647] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:09:20.647] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1765439774527}
+[00:09:22.554] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:25.074] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:26.492] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:09:26.492] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:09:26.492] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1765439778847}
+[00:09:28.125] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" suppressHydrationWarning={true}>
+                          <body
+                            className="playfair_display_1c02d865-module__DtM2sa__variable inter_112e9c25-module__4-4dg..."
+-                           data-new-gr-c-s-check-loaded="14.1264.0"
+-                           data-gr-ext-installed=""
+                          >
+                  ...
+
+[00:09:28.126] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:09:28.126] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:09:28.126] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1765439781656}
+[00:09:37.479] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/browse color: rgb(120, 120, 120) color: inherit {"dp":"/browse","o":"http://localhost:3000/browse","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1765439791270}
+[00:09:49.590] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth/login color: rgb(120, 120, 120) color: inherit {"dp":"/auth/login","o":"http://localhost:3000/auth/login","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1765439803474}
+[00:10:22.412] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth/sign-up color: rgb(120, 120, 120) color: inherit {"dp":"/auth/sign-up","o":"http://localhost:3000/auth/sign-up","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1765439836295}
+[00:11:06.827] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth/sign-up-success color: rgb(120, 120, 120) color: inherit {"dp":"/auth/sign-up-success","o":"http://localhost:3000/auth/sign-up-success","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1765439880702}
+[00:12:51.947] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth/login color: rgb(120, 120, 120) color: inherit {"dp":"/auth/login","o":"http://localhost:3000/auth/login","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1765439985809}
+[00:18:10.107] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:10.877] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/auth/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" suppressHydrationWarning={true}>
+                          <body
+                            className="playfair_display_1c02d865-module__DtM2sa__variable inter_112e9c25-module__4-4dg..."
+-                           data-new-gr-c-s-check-loaded="14.1264.0"
+-                           data-gr-ext-installed=""
+                          >
+                  ...
+
+[00:18:11.083] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:18:11.083] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth/login","route":"/auth/login"}
+[00:18:11.083] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth/login color: rgb(120, 120, 120) color: inherit {"dp":"/auth/login","o":"http://localhost:3000/auth/login","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1765440304932}
+[00:22:29.205] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/browse color: rgb(120, 120, 120) color: inherit {"dp":"/browse","o":"http://localhost:3000/browse","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1765440563009}
+[00:22:49.599] Server  LOG      ○ Compiling /profile ...
+[00:22:51.760] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/profile color: rgb(120, 120, 120) color: inherit {"dp":"/profile","o":"http://localhost:3000/profile","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1765440585640}
+[00:26:45.094] Server  LOG      ✓ Compiled in 1865ms
+[00:30:54.633] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:30:55.494] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" suppressHydrationWarning={true}>
+                          <body
+                            className="playfair_display_1c02d865-module__DtM2sa__variable inter_112e9c25-module__4-4dg..."
+-                           data-new-gr-c-s-check-loaded="14.1264.0"
+-                           data-gr-ext-installed=""
+                          >
+                  ...
+
+[00:30:55.626] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:30:55.626] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:30:55.626] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1765441069509}
+[00:31:54.357] Server  LOG      ○ Compiling /discover ...
+[00:31:57.182] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/discover color: rgb(120, 120, 120) color: inherit {"dp":"/discover","o":"http://localhost:3000/discover","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1765441131052}
