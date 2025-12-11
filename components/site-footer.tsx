@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Diamond, MessageCircle } from "lucide-react"
+import { MessageCircle } from "lucide-react"
 import type { SiteSettings } from "@/lib/types"
 
 interface SiteFooterProps {
@@ -13,13 +13,13 @@ export function SiteFooter({ settings }: SiteFooterProps) {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-3">
-              <Diamond className="h-6 w-6 text-primary" />
+              <img src="/logo.svg" alt="EscortNepal Logo" className="h-6 w-6" />
               <span className="font-serif text-lg font-semibold tracking-[0.15em] text-foreground uppercase">
-                {settings?.site_name || "SAATHI NEPAL"}
+                {settings?.site_name || "EscortNepal"}
               </span>
             </Link>
             <p className="mt-6 text-sm font-normal leading-relaxed text-foreground/75">
-              Premium collection of Nepal&apos;s most beautiful models. Exclusive profiles for distinguished clients.
+              Premium collection of Nepal&apos;s most beautiful escorts. Exclusive profiles for distinguished clients.
             </p>
           </div>
 
@@ -75,7 +75,7 @@ export function SiteFooter({ settings }: SiteFooterProps) {
           <div className="flex flex-col items-center gap-4">
             <div className="h-px w-20 bg-gradient-to-r from-transparent via-primary to-transparent" />
             <p className="text-center text-sm font-medium tracking-widest uppercase text-foreground/70">
-              © {new Date().getFullYear()} {settings?.site_name || "SAATHI NEPAL"}
+              © {new Date().getFullYear()} {settings?.site_name || "EscortNepal"}. All rights reserved.
             </p>
           </div>
         </div>

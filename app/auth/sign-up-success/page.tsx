@@ -9,7 +9,7 @@ export default function SignUpSuccessPage() {
         <div className="flex flex-col gap-6">
           <div className="text-center">
             <Link href="/" className="text-2xl font-bold text-primary">
-              SAATHI NEPAL
+              EscortNepal
             </Link>
           </div>
 

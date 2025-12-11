@@ -1,28 +1,18 @@
-import { createClient } from "@/lib/supabase/server"
-import { redirect } from "next/navigation"
-import { AdminDashboard } from "@/components/admin/admin-dashboard"
+import { createClient } from "@/lib/supabase/server";
+import { AdminDashboard } from "@/components/admin/admin-dashboard";
+import { requireGodMode } from "@/lib/authGuard";
+import { AdminSidebar } from "@/components/AdminSidebar";
 
 export const metadata = {
-  title: "Admin Dashboard | SAATHI NEPAL",
-  description: "Agency Management System for SAATHI NEPAL.",
+  title: "Admin Dashboard | EscortNepal",
+  description: "Agency Management System for EscortNepal.",
 }
 
 export default async function AdminPage() {
-  const supabase = await createClient()
+  // Ensure only god‑mode admin can access
+  const profile = await requireGodMode();
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
-  if (!user) {
-    redirect("/auth/login")
-  }
-
-  const { data: profile } = await supabase.from("profiles").select("*").eq("id", user.id).single()
-
-  if (profile?.role !== "agency_admin") {
-    redirect("/")
-  }
+  const supabase = await createClient();
 
   // Fetch all data for admin
   const [
@@ -41,20 +31,25 @@ export default async function AdminPage() {
     supabase.from("hosts").select("*", { count: "exact", head: true }),
     supabase.from("blogs").select("*", { count: "exact", head: true }),
     supabase.from("profiles").select("*", { count: "exact", head: true }),
-  ])
+  ]);
 
   return (
-    <AdminDashboard
-      currentUser={profile}
-      hosts={hosts || []}
-      blogs={blogs || []}
-      users={users || []}
-      settings={settings}
-      stats={{
-        hostsCount: hostsCount || 0,
-        blogsCount: blogsCount || 0,
-        usersCount: usersCount || 0,
-      }}
-    />
-  )
+    <div className="flex min-h-screen bg-muted/30">
+      <AdminSidebar />
+      <main className="flex-1 overflow-auto p-6">
+        <AdminDashboard
+          currentUser={profile}
+          hosts={hosts || []}
+          blogs={blogs || []}
+          users={users || []}
+          settings={settings}
+          stats={{
+            hostsCount: hostsCount || 0,
+            blogsCount: blogsCount || 0,
+            usersCount: usersCount || 0,
+          }}
+        />
+      </main>
+    </div>
+  );
 }

@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { createClient } from "@/lib/supabase/client"
 import { toast } from "sonner"
 import type { SiteSettings } from "@/lib/types"
+import { ImageUpload } from "@/components/ui/image-upload"
 
 interface AdminSettingsProps {
   settings: SiteSettings | null
@@ -19,7 +20,7 @@ interface AdminSettingsProps {
 export function AdminSettings({ settings, onRefresh }: AdminSettingsProps) {
   const [isLoading, setIsLoading] = useState(false)
   const [formData, setFormData] = useState({
-    site_name: settings?.site_name || "SAATHI NEPAL",
+    site_name: settings?.site_name || "EscortNepal",
     logo_url: settings?.logo_url || "",
     hero_headline: settings?.hero_headline || "",
     hero_subheadline: settings?.hero_subheadline || "",
@@ -74,18 +75,12 @@ export function AdminSettings({ settings, onRefresh }: AdminSettingsProps) {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="logo_url">Logo URL</Label>
-                <Input
-                  id="logo_url"
-                  value={formData.logo_url}
-                  onChange={(e) => setFormData({ ...formData, logo_url: e.target.value })}
-                  placeholder="https://..."
+                <Label>Logo</Label>
+                <ImageUpload
+                  value={formData.logo_url ? [formData.logo_url] : []}
+                  onChange={(urls) => setFormData({ ...formData, logo_url: urls[0] || "" })}
+                  onRemove={() => setFormData({ ...formData, logo_url: "" })}
                 />
-                {formData.logo_url && (
-                  <div className="mt-2">
-                    <img src={formData.logo_url || "/placeholder.svg"} alt="Logo preview" className="h-12 w-auto" />
-                  </div>
-                )}
               </div>
             </CardContent>
           </Card>
@@ -131,7 +126,7 @@ export function AdminSettings({ settings, onRefresh }: AdminSettingsProps) {
                     type="email"
                     value={formData.contact_email}
                     onChange={(e) => setFormData({ ...formData, contact_email: e.target.value })}
-                    placeholder="info@saathinepal.com"
+                    placeholder="info@escortnepal.com"
                   />
                 </div>
                 <div className="space-y-2">

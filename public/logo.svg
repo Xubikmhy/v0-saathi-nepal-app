@@ -1,0 +1,39 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Angel silhouette with wings spread -->
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F4D03F;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#D4AF37;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C5A028;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Left Wing -->
+  <path d="M 60 100 Q 20 80, 10 60 Q 5 50, 15 45 Q 25 40, 35 50 Q 45 60, 50 75 Q 55 85, 60 95 Z" 
+        fill="url(#goldGradient)" opacity="0.9"/>
+  <path d="M 65 95 Q 30 75, 20 55 Q 15 45, 25 42 Q 35 40, 45 52 Q 55 65, 60 80 Q 63 88, 65 93 Z" 
+        fill="url(#goldGradient)" opacity="0.7"/>
+  
+  <!-- Right Wing -->
+  <path d="M 140 100 Q 180 80, 190 60 Q 195 50, 185 45 Q 175 40, 165 50 Q 155 60, 150 75 Q 145 85, 140 95 Z" 
+        fill="url(#goldGradient)" opacity="0.9"/>
+  <path d="M 135 95 Q 170 75, 180 55 Q 185 45, 175 42 Q 165 40, 155 52 Q 145 65, 140 80 Q 137 88, 135 93 Z" 
+        fill="url(#goldGradient)" opacity="0.7"/>
+  
+  <!-- Angel Body (simplified silhouette) -->
+  <ellipse cx="100" cy="85" rx="12" ry="15" fill="url(#goldGradient)"/>
+  
+  <!-- Angel Head -->
+  <circle cx="100" cy="60" r="10" fill="url(#goldGradient)"/>
+  
+  <!-- Halo -->
+  <ellipse cx="100" cy="48" rx="14" ry="4" fill="none" stroke="url(#goldGradient)" stroke-width="2" opacity="0.8"/>
+  
+  <!-- Flowing Dress -->
+  <path d="M 88 95 Q 85 110, 80 130 Q 78 140, 85 145 L 100 150 L 115 145 Q 122 140, 120 130 Q 115 110, 112 95 Z" 
+        fill="url(#goldGradient)" opacity="0.85"/>
+  
+  <!-- Arms reaching up -->
+  <path d="M 88 80 Q 75 70, 65 65" stroke="url(#goldGradient)" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M 112 80 Q 125 70, 135 65" stroke="url(#goldGradient)" stroke-width="3" stroke-linecap="round" fill="none"/>
+</svg>

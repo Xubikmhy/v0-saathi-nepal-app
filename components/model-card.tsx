@@ -11,7 +11,7 @@ interface ModelCardProps {
 
 const WHATSAPP_NUMBER = "9779701083684"
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hello, I found your portfolio on SAATHI NEPAL and would like to make a booking inquiry.",
+  "Hello, I found your portfolio on EscortNepal and would like to make a booking inquiry.",
 )
 
 export function ModelCard({ model }: ModelCardProps) {

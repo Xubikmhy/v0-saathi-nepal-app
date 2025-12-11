@@ -8,8 +8,8 @@ import { Button } from "@/components/ui/button"
 import { Heart } from "lucide-react"
 
 export const metadata = {
-  title: "My Favorites | SAATHI NEPAL",
-  description: "View your saved favorite hosts and guides.",
+  title: "My Favorites | EscortNepal",
+  description: "View your saved favorite escorts.",
 }
 
 export default async function FavoritesPage() {
@@ -45,7 +45,7 @@ export default async function FavoritesPage() {
         <div className="mx-auto max-w-7xl px-4 py-8 lg:px-8">
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-foreground">My Favorites</h1>
-            <p className="mt-2 text-muted-foreground">Hosts and guides you&apos;ve saved</p>
+            <p className="mt-2 text-muted-foreground">Escorts you&apos;ve saved</p>
           </div>
 
           {favoriteHosts.length > 0 ? (
@@ -59,7 +59,7 @@ export default async function FavoritesPage() {
               <Heart className="mx-auto h-16 w-16 text-muted-foreground/50" />
               <p className="mt-4 text-lg text-muted-foreground">No favorites yet</p>
               <p className="mt-2 text-sm text-muted-foreground">
-                Start browsing and save hosts you&apos;re interested in
+                Start browsing and save escorts you&apos;re interested in
               </p>
               <Link href="/discover" className="mt-6 inline-block">
                 <Button>Start Discovering</Button>

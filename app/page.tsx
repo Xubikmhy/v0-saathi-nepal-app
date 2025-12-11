@@ -6,16 +6,32 @@ import { ModelCard } from "@/components/model-card"
 import { createClient } from "@/lib/supabase/server"
 import { ArrowRight, Sparkles, Crown, Diamond, Star } from "lucide-react"
 
+import { MOCK_MODELS } from "@/lib/mock-data"
+
 export default async function HomePage() {
   const supabase = await createClient()
 
   const { data: settings } = await supabase.from("site_settings").select("*").eq("id", 1).single()
 
-  const { data: featuredModels } = await supabase.from("hosts").select("*").eq("status", "active").limit(6)
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  let isAdmin = false
+  if (user) {
+    const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).single()
+    isAdmin = profile?.role === "agency_admin"
+  }
+
+  let { data: featuredModels } = await supabase.from("hosts").select("*").eq("status", "active").limit(6)
+
+  if (!featuredModels || featuredModels.length === 0) {
+    featuredModels = MOCK_MODELS
+  }
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <SiteHeader settings={settings} />
+      <SiteHeader settings={settings} isAuthenticated={!!user} isAdmin={isAdmin} />
 
       <main className="flex-1">
         {/* Hero Section - Premium Dark */}

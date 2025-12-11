@@ -12,7 +12,7 @@ interface DiscoverSwiperProps {
 
 const WHATSAPP_NUMBER = "9779701083684"
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hello, I found your portfolio on SAATHI NEPAL and would like to make a booking inquiry.",
+  "Hello, I found your portfolio on EscortNepal and would like to make a booking inquiry.",
 )
 
 export function DiscoverSwiper({ models }: DiscoverSwiperProps) {
@@ -67,22 +67,20 @@ export function DiscoverSwiper({ models }: DiscoverSwiperProps) {
         {models.slice(0, 10).map((_, idx) => (
           <div
             key={idx}
-            className={`h-1.5 w-8 rounded-full transition-colors ${
-              idx === currentIndex % 10 ? "bg-primary" : idx < currentIndex % 10 ? "bg-primary/50" : "bg-muted"
-            }`}
+            className={`h-1.5 w-8 rounded-full transition-colors ${idx === currentIndex % 10 ? "bg-primary" : idx < currentIndex % 10 ? "bg-primary/50" : "bg-muted"
+              }`}
           />
         ))}
       </div>
 
       {/* Card - Enhanced with better visibility */}
       <div
-        className={`relative w-full max-w-sm overflow-hidden rounded-3xl bg-card border border-border/30 shadow-2xl shadow-black/50 transition-all duration-300 ${
-          direction === "left"
+        className={`relative w-full max-w-sm overflow-hidden rounded-3xl bg-card border border-border/30 shadow-2xl shadow-black/50 transition-all duration-300 ${direction === "left"
             ? "-translate-x-full rotate-[-15deg] opacity-0"
             : direction === "right"
               ? "translate-x-full rotate-[15deg] opacity-0"
               : ""
-        }`}
+          }`}
       >
         <div className="aspect-[3/4] relative">
           <img

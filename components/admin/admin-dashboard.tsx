@@ -81,7 +81,7 @@ export function AdminDashboard({
       <aside className="hidden w-64 flex-col border-r bg-card lg:flex">
         <div className="flex h-16 items-center border-b px-6">
           <Link href="/" className="text-xl font-bold text-primary">
-            {settings?.site_name || "SAATHI NEPAL"}
+            {settings?.site_name || "EscortNepal"}
           </Link>
         </div>
         <nav className="flex-1 space-y-1 p-4">
@@ -115,7 +115,7 @@ export function AdminDashboard({
       <div className="flex flex-1 flex-col">
         <header className="flex h-16 items-center justify-between border-b bg-card px-4 lg:hidden">
           <Link href="/" className="text-xl font-bold text-primary">
-            {settings?.site_name || "SAATHI"}
+            {settings?.site_name || "EscortNepal"}
           </Link>
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild>

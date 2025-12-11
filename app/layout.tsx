@@ -19,10 +19,10 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "SAATHI NEPAL | Premium Nepali Models",
+  title: "EscortNepal | Premium Nepali Escorts",
   description:
-    "Discover stunning Nepali models for your events, photoshoots, and exclusive companionship. Premium verified profiles.",
-  keywords: ["Nepal", "models", "Nepali models", "premium", "exclusive", "Kathmandu", "Pokhara"],
+    "Discover stunning Nepali escorts for your events, photoshoots, and exclusive companionship. Premium verified profiles.",
+  keywords: ["Nepal", "escorts", "Nepali escorts", "premium", "exclusive", "Kathmandu", "Pokhara", "EscortNepal"],
   generator: "v0.app",
   icons: {
     icon: [

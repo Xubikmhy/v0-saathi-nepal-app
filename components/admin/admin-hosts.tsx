@@ -25,6 +25,7 @@ import { createClient } from "@/lib/supabase/client"
 import { toast } from "sonner"
 import { Plus, Pencil, Trash2, Search } from "lucide-react"
 import type { Host, HostStatus } from "@/lib/types"
+import { ImageUpload } from "@/components/ui/image-upload"
 
 interface AdminHostsProps {
   hosts: Host[]
@@ -231,23 +232,25 @@ export function AdminHosts({ hosts, onRefresh }: AdminHostsProps) {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="profile_image_url">Profile Image URL</Label>
-        <Input
-          id="profile_image_url"
-          value={formData.profile_image_url}
-          onChange={(e) => setFormData({ ...formData, profile_image_url: e.target.value })}
-          placeholder="https://..."
+        <Label>Profile Image</Label>
+        <ImageUpload
+          value={formData.profile_image_url ? [formData.profile_image_url] : []}
+          onChange={(urls) => setFormData({ ...formData, profile_image_url: urls[0] || "" })}
+          onRemove={() => setFormData({ ...formData, profile_image_url: "" })}
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="gallery_urls">Gallery URLs (one per line)</Label>
-        <Textarea
-          id="gallery_urls"
-          value={formData.gallery_urls}
-          onChange={(e) => setFormData({ ...formData, gallery_urls: e.target.value })}
-          rows={3}
-          placeholder="https://...&#10;https://..."
+        <Label>Gallery Images</Label>
+        <ImageUpload
+          value={formData.gallery_urls ? formData.gallery_urls.split("\n").filter(Boolean) : []}
+          onChange={(urls) => setFormData({ ...formData, gallery_urls: urls.join("\n") })}
+          onRemove={(url) => {
+            const currentUrls = formData.gallery_urls.split("\n").filter(Boolean)
+            const newUrls = currentUrls.filter((u) => u !== url)
+            setFormData({ ...formData, gallery_urls: newUrls.join("\n") })
+          }}
+          multiple
         />
       </div>
 
@@ -340,13 +343,12 @@ export function AdminHosts({ hosts, onRefresh }: AdminHostsProps) {
                 <TableCell>{host.age || "-"}</TableCell>
                 <TableCell>
                   <span
-                    className={`rounded-full px-2 py-1 text-xs ${
-                      host.status === "active"
+                    className={`rounded-full px-2 py-1 text-xs ${host.status === "active"
                         ? "bg-green-100 text-green-700"
                         : host.status === "pending"
                           ? "bg-yellow-100 text-yellow-700"
                           : "bg-gray-100 text-gray-700"
-                    }`}
+                      }`}
                   >
                     {host.status}
                   </span>

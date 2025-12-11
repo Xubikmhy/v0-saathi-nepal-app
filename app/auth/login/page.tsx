@@ -24,9 +24,14 @@ export default function LoginPage() {
     setIsLoading(true)
     setError(null)
 
+    let loginEmail = email
+    if (email.toLowerCase() === "admin") {
+      loginEmail = "admin@escortnepal.com"
+    }
+
     try {
       const { error } = await supabase.auth.signInWithPassword({
-        email,
+        email: loginEmail,
         password,
       })
       if (error) throw error
@@ -59,7 +64,7 @@ export default function LoginPage() {
         <div className="flex flex-col gap-6">
           <div className="text-center">
             <Link href="/" className="text-2xl font-bold text-primary">
-              SAATHI NEPAL
+              EscortNepal
             </Link>
           </div>
 
@@ -72,11 +77,11 @@ export default function LoginPage() {
               <form onSubmit={handleLogin}>
                 <div className="flex flex-col gap-6">
                   <div className="grid gap-2">
-                    <Label htmlFor="email">Email</Label>
+                    <Label htmlFor="email">Email or Username</Label>
                     <Input
                       id="email"
-                      type="email"
-                      placeholder="admin@saathi.local"
+                      type="text"
+                      placeholder="admin or email@example.com"
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
