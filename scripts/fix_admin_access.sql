@@ -1,20 +1,27 @@
--- Run this script in Supabase SQL Editor to ensure admin access
--- 1. Ensure profiles table has role column
-ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS role text DEFAULT 'client';
+-- 1. Grant agency_admin role to the specific user
+INSERT INTO public.profiles (id, role, full_name)
+VALUES ('43e1682b-c423-46ed-8b97-7d8a08f244bb', 'agency_admin', 'God Mode Admin')
+ON CONFLICT (id) DO UPDATE
+SET role = 'agency_admin';
 
--- 2. Ensure the specific user is an admin in profiles
-UPDATE public.profiles 
-SET role = 'agency_admin' 
-WHERE id IN (SELECT id FROM auth.users WHERE email = 'xuxilhax@gmail.com');
+-- 2. Ensure RLS allows users to read their own profile (crucial for middleware check)
+-- First, enable RLS if not already enabled (idempotent usually, but good to note)
+ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
 
--- 3. Ensure the user has admin role in user_roles (Source of Truth)
-INSERT INTO public.user_roles (user_id, role)
-SELECT id, 'admin'
-FROM auth.users 
-WHERE email = 'xuxilhax@gmail.com'
-ON CONFLICT (user_id) DO UPDATE SET role = 'admin';
-
--- 4. Mark as super admin in auth.users (System flag)
-UPDATE auth.users 
-SET is_super_admin = true, email_confirmed_at = now()
-WHERE email = 'xuxilhax@gmail.com';
+-- Drop policy if it exists to avoid errors on run (optional, or just create if not exists using do block)
+DO $$
+BEGIN
+    IF NOT EXISTS (
+        SELECT 1 FROM pg_policies 
+        WHERE tablename = 'profiles' 
+        AND policyname = 'Users can view own profile'
+    ) THEN
+        create policy "Users can view own profile"
+        on "public"."profiles"
+        as permissive
+        for select
+        to authenticated
+        using ((auth.uid() = id));
+    END IF;
+END
+$$;

@@ -15,16 +15,16 @@ export async function requireGodMode(): Promise<Profile> {
         redirect('/admin/login');
     }
 
-    // Check user_roles table for 'admin' role
-    const { data: userRole, error: roleError } = await supabase
-        .from('user_roles')
+    // Check profiles table for 'agency_admin' role
+    const { data: profileCheck, error: roleError } = await supabase
+        .from('profiles')
         .select('role')
-        .eq('user_id', user.id)
+        .eq('id', user.id)
         .single();
 
-    if (roleError || !userRole || userRole.role !== 'admin') {
-        console.log('User is not admin, redirecting. Role:', userRole?.role);
-        redirect('/admin/login');
+    if (roleError || !profileCheck || profileCheck.role !== 'agency_admin') {
+        console.log('User is not admin, redirecting. Role:', profileCheck?.role);
+        redirect('/');
     }
 
     const { data: profile, error } = await supabase

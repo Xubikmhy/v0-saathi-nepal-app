@@ -44,7 +44,7 @@ async function updateSession(request) {
     });
     const { data: { user } } = await supabase.auth.getUser();
     // Protected admin routes
-    if (request.nextUrl.pathname.startsWith("/admin")) {
+    if (request.nextUrl.pathname.startsWith("/admin") && request.nextUrl.pathname !== "/admin/login") {
         if (!user) {
             const url = request.nextUrl.clone();
             url.pathname = "/auth/login";

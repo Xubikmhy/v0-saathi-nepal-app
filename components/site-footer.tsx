@@ -61,10 +61,10 @@ export function SiteFooter({ settings }: SiteFooterProps) {
               </li>
               <li>
                 <Link
-                  href="/auth/login"
+                  href="/admin"
                   className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
                 >
-                  Admin
+                  Admin Dashboard
                 </Link>
               </li>
             </ul>

@@ -21,7 +21,7 @@ export function ImageUpload({
     onChange,
     onRemove,
     disabled,
-    bucket = "uploads",
+    bucket = process.env.NEXT_PUBLIC_UPLOADS_BUCKET || "uploads",
     multiple = false
 }: ImageUploadProps) {
     const [isUploading, setIsUploading] = useState(false)

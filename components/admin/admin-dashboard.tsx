@@ -6,13 +6,14 @@ import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { createClient } from "@/lib/supabase/client"
 import { toast } from "sonner"
-import { LayoutDashboard, Users, FileText, Settings, UserCog, LogOut, Menu } from "lucide-react"
+import { LayoutDashboard, Users, FileText, Settings, UserCog, LogOut, Menu, Megaphone } from "lucide-react"
 import { AdminOverview } from "./admin-overview"
 import { AdminHosts } from "./admin-hosts"
 import { AdminBlogs } from "./admin-blogs"
+import { AdminAds } from "./admin-ads"
 import { AdminSettings } from "./admin-settings"
 import { AdminUsers } from "./admin-users"
-import type { Host, Blog, Profile, SiteSettings } from "@/lib/types"
+import type { Host, Blog, Profile, SiteSettings, Ad } from "@/lib/types"
 import Link from "next/link"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
@@ -20,6 +21,7 @@ interface AdminDashboardProps {
   currentUser: Profile
   hosts: Host[]
   blogs: Blog[]
+  ads?: Ad[]
   users: Profile[]
   settings: SiteSettings | null
   stats: {
@@ -35,11 +37,13 @@ export function AdminDashboard({
   blogs: initialBlogs,
   users: initialUsers,
   settings: initialSettings,
+  ads: initialAds = [],
   stats,
 }: AdminDashboardProps) {
   const router = useRouter()
   const [hosts, setHosts] = useState(initialHosts)
   const [blogs, setBlogs] = useState(initialBlogs)
+  const [ads, setAds] = useState<Ad[]>(initialAds)
   const [users, setUsers] = useState(initialUsers)
   const [settings, setSettings] = useState(initialSettings)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -54,23 +58,26 @@ export function AdminDashboard({
 
   const refreshData = async () => {
     const supabase = createClient()
-    const [hostsRes, blogsRes, usersRes, settingsRes] = await Promise.all([
+    const [hostsRes, blogsRes, usersRes, settingsRes, adsRes] = await Promise.all([
       supabase.from("hosts").select("*").order("created_at", { ascending: false }),
       supabase.from("blogs").select("*").order("created_at", { ascending: false }),
       supabase.from("profiles").select("*").order("created_at", { ascending: false }),
       supabase.from("site_settings").select("*").eq("id", 1).single(),
+      supabase.from("ads").select("*").order("created_at", { ascending: false }),
     ])
 
     if (hostsRes.data) setHosts(hostsRes.data)
     if (blogsRes.data) setBlogs(blogsRes.data)
     if (usersRes.data) setUsers(usersRes.data)
     if (settingsRes.data) setSettings(settingsRes.data)
+    if (adsRes.data) setAds(adsRes.data as Ad[])
   }
 
   const navItems = [
     { value: "overview", label: "Overview", icon: LayoutDashboard },
     { value: "hosts", label: "Host Management", icon: Users },
     { value: "blogs", label: "Content Management", icon: FileText },
+    { value: "ads", label: "Ads", icon: Megaphone },
     { value: "settings", label: "Global Settings", icon: Settings },
     { value: "users", label: "User Control", icon: UserCog },
   ]
@@ -162,6 +169,7 @@ export function AdminDashboard({
           {activeTab === "overview" && <AdminOverview stats={stats} hosts={hosts} blogs={blogs} />}
           {activeTab === "hosts" && <AdminHosts hosts={hosts} onRefresh={refreshData} />}
           {activeTab === "blogs" && <AdminBlogs blogs={blogs} onRefresh={refreshData} />}
+          {activeTab === "ads" && <AdminAds ads={ads} onRefresh={refreshData} />}
           {activeTab === "settings" && <AdminSettings settings={settings} onRefresh={refreshData} />}
           {activeTab === "users" && <AdminUsers users={users} currentUserId={currentUser.id} onRefresh={refreshData} />}
         </main>

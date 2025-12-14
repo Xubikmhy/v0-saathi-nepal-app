@@ -7,6 +7,8 @@ import { createClient } from "@/lib/supabase/server"
 import { ArrowRight, Sparkles, Crown, Diamond, Star } from "lucide-react"
 
 import { MOCK_MODELS } from "@/lib/mock-data"
+import { AdBanner } from "@/components/ad-banner"
+import type { Ad } from "@/lib/types"
 
 export default async function HomePage() {
   const supabase = await createClient()
@@ -25,6 +27,13 @@ export default async function HomePage() {
 
   let { data: featuredModels } = await supabase.from("hosts").select("*").eq("status", "active").limit(6)
 
+  const { data: headerAds } = await supabase
+    .from("ads")
+    .select("*")
+    .eq("position", "header")
+    .eq("is_active", true)
+    .limit(1)
+
   if (!featuredModels || featuredModels.length === 0) {
     featuredModels = MOCK_MODELS
   }
@@ -34,6 +43,11 @@ export default async function HomePage() {
       <SiteHeader settings={settings} isAuthenticated={!!user} isAdmin={isAdmin} />
 
       <main className="flex-1">
+        {headerAds && headerAds.length > 0 && (
+          <div className="mx-auto max-w-7xl px-4 lg:px-8 pt-6">
+            <AdBanner ad={headerAds[0] as Ad} />
+          </div>
+        )}
         {/* Hero Section - Premium Dark */}
         <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
           {/* Background with overlay */}

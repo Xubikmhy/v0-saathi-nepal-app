@@ -23,6 +23,7 @@ export function SiteHeader({ settings, isAuthenticated, isAdmin }: SiteHeaderPro
   ]
 
   if (isAuthenticated) {
+    navigation.push({ name: "Dashboard", href: "/dashboard" })
     navigation.push({ name: "Favorites", href: "/favorites" })
     navigation.push({ name: "Profile", href: "/profile" })
   }

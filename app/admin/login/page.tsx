@@ -1,6 +1,6 @@
 'use client';
 
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
@@ -14,7 +14,7 @@ export default function AdminLoginPage() {
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const router = useRouter();
-    const supabase = createClientComponentClient();
+    const supabase = createClient();
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -31,13 +31,13 @@ export default function AdminLoginPage() {
             }
 
             // Check if user has admin role
-            const { data: roleData, error: roleError } = await supabase
-                .from('user_roles')
+            const { data: profile, error: profileError } = await supabase
+                .from('profiles')
                 .select('role')
-                .eq('user_id', data.session?.user.id)
+                .eq('id', data.session?.user.id)
                 .single();
 
-            if (roleError || roleData?.role !== 'admin') {
+            if (profileError || profile?.role !== 'agency_admin') {
                 await supabase.auth.signOut();
                 toast.error('Unauthorized access. Admin privileges required.');
                 return;

@@ -23,6 +23,7 @@ export default async function AdminPage() {
     { count: hostsCount },
     { count: blogsCount },
     { count: usersCount },
+    { data: ads },
   ] = await Promise.all([
     supabase.from("hosts").select("*").order("created_at", { ascending: false }),
     supabase.from("blogs").select("*").order("created_at", { ascending: false }),
@@ -31,6 +32,7 @@ export default async function AdminPage() {
     supabase.from("hosts").select("*", { count: "exact", head: true }),
     supabase.from("blogs").select("*", { count: "exact", head: true }),
     supabase.from("profiles").select("*", { count: "exact", head: true }),
+    supabase.from("ads").select("*").order("created_at", { ascending: false }),
   ]);
 
   return (
@@ -43,6 +45,7 @@ export default async function AdminPage() {
           blogs={blogs || []}
           users={users || []}
           settings={settings}
+          ads={ads || []}
           stats={{
             hostsCount: hostsCount || 0,
             blogsCount: blogsCount || 0,
