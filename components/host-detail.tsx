@@ -16,7 +16,7 @@ interface HostDetailProps {
 }
 
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hello, I found your portfolio on EscortNepal and would like to submit a professional booking inquiry.",
+  "Hello, I found your portfolio on SAATHI NEPAL and would like to submit a professional booking inquiry.",
 )
 
 export function HostDetail({ host, isAuthenticated, isFavorited: initialFavorited }: HostDetailProps) {
@@ -115,8 +115,9 @@ export function HostDetail({ host, isAuthenticated, isFavorited: initialFavorite
                     <button
                       key={idx}
                       onClick={() => setCurrentImageIndex(idx)}
-                      className={`h-2 w-2 rounded-full transition-colors ${idx === currentImageIndex ? "bg-white" : "bg-white/50"
-                        }`}
+                      className={`h-2 w-2 rounded-full transition-colors ${
+                        idx === currentImageIndex ? "bg-white" : "bg-white/50"
+                      }`}
                     />
                   ))}
                 </div>
@@ -131,8 +132,9 @@ export function HostDetail({ host, isAuthenticated, isFavorited: initialFavorite
                 <button
                   key={idx}
                   onClick={() => setCurrentImageIndex(idx)}
-                  className={`flex-shrink-0 overflow-hidden rounded-lg ${idx === currentImageIndex ? "ring-2 ring-primary" : ""
-                    }`}
+                  className={`flex-shrink-0 overflow-hidden rounded-lg ${
+                    idx === currentImageIndex ? "ring-2 ring-primary" : ""
+                  }`}
                 >
                   <img
                     src={img || "/placeholder.svg"}

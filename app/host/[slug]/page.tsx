@@ -21,11 +21,11 @@ export async function generateMetadata({ params }: HostPageProps): Promise<Metad
     .single()
 
   if (!host) {
-    return { title: "Host Not Found | EscortNepal" }
+    return { title: "Host Not Found | SAATHI NEPAL" }
   }
 
   return {
-    title: `${host.name} | EscortNepal`,
+    title: `${host.name} | SAATHI NEPAL`,
     description: host.bio || `Connect with ${host.name}, a professional host/guide in ${host.location || "Nepal"}.`,
   }
 }

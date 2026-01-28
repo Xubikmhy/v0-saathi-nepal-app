@@ -55,19 +55,3 @@ export interface Favorite {
   host_id: string
   created_at: string
 }
-
-export type AdPosition = 'header' | 'sidebar' | 'footer' | 'inline'
-
-export interface Ad {
-  id: string
-  title: string
-  image_url: string | null
-  link_url: string | null
-  html: string | null
-  position: AdPosition
-  is_active: boolean
-  start_at: string | null
-  end_at: string | null
-  created_at: string
-  updated_at: string
-}

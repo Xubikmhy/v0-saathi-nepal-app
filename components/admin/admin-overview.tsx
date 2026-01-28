@@ -21,7 +21,7 @@ export function AdminOverview({ stats, hosts, blogs }: AdminOverviewProps) {
     <div className="p-6">
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-foreground">Dashboard Overview</h1>
-        <p className="mt-2 text-muted-foreground">Welcome to the EscortNepal Agency Management System</p>
+        <p className="mt-2 text-muted-foreground">Welcome to the SAATHI NEPAL Agency Management System</p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -94,12 +94,13 @@ export function AdminOverview({ stats, hosts, blogs }: AdminOverviewProps) {
                     <p className="text-sm text-muted-foreground">{host.location}</p>
                   </div>
                   <span
-                    className={`rounded-full px-2 py-1 text-xs ${host.status === "active"
+                    className={`rounded-full px-2 py-1 text-xs ${
+                      host.status === "active"
                         ? "bg-green-100 text-green-700"
                         : host.status === "pending"
                           ? "bg-yellow-100 text-yellow-700"
                           : "bg-gray-100 text-gray-700"
-                      }`}
+                    }`}
                   >
                     {host.status}
                   </span>
@@ -123,8 +124,9 @@ export function AdminOverview({ stats, hosts, blogs }: AdminOverviewProps) {
                     <p className="text-sm text-muted-foreground">{new Date(blog.created_at).toLocaleDateString()}</p>
                   </div>
                   <span
-                    className={`rounded-full px-2 py-1 text-xs ${blog.is_published ? "bg-green-100 text-green-700" : "bg-yellow-100 text-yellow-700"
-                      }`}
+                    className={`rounded-full px-2 py-1 text-xs ${
+                      blog.is_published ? "bg-green-100 text-green-700" : "bg-yellow-100 text-yellow-700"
+                    }`}
                   >
                     {blog.is_published ? "Published" : "Draft"}
                   </span>

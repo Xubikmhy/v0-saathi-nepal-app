@@ -32,14 +32,9 @@ export default function SignUpPage() {
       return
     }
 
-    let signUpEmail = email
-    if (email.toLowerCase() === "admin") {
-      signUpEmail = "admin@escortnepal.com"
-    }
-
     try {
       const { error } = await supabase.auth.signUp({
-        email: signUpEmail,
+        email,
         password,
         options: {
           emailRedirectTo: process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL || `${window.location.origin}/browse`,
@@ -63,7 +58,7 @@ export default function SignUpPage() {
         <div className="flex flex-col gap-6">
           <div className="text-center">
             <Link href="/" className="text-2xl font-bold text-primary">
-              EscortNepal
+              SAATHI NEPAL
             </Link>
           </div>
 
@@ -87,11 +82,11 @@ export default function SignUpPage() {
                     />
                   </div>
                   <div className="grid gap-2">
-                    <Label htmlFor="email">Email or Username</Label>
+                    <Label htmlFor="email">Email</Label>
                     <Input
                       id="email"
-                      type="text"
-                      placeholder="admin or m@example.com"
+                      type="email"
+                      placeholder="m@example.com"
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}

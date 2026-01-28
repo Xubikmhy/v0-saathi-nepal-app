@@ -6,14 +6,13 @@ import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { createClient } from "@/lib/supabase/client"
 import { toast } from "sonner"
-import { LayoutDashboard, Users, FileText, Settings, UserCog, LogOut, Menu, Megaphone } from "lucide-react"
+import { LayoutDashboard, Users, FileText, Settings, UserCog, LogOut, Menu } from "lucide-react"
 import { AdminOverview } from "./admin-overview"
 import { AdminHosts } from "./admin-hosts"
 import { AdminBlogs } from "./admin-blogs"
-import { AdminAds } from "./admin-ads"
 import { AdminSettings } from "./admin-settings"
 import { AdminUsers } from "./admin-users"
-import type { Host, Blog, Profile, SiteSettings, Ad } from "@/lib/types"
+import type { Host, Blog, Profile, SiteSettings } from "@/lib/types"
 import Link from "next/link"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
@@ -21,7 +20,6 @@ interface AdminDashboardProps {
   currentUser: Profile
   hosts: Host[]
   blogs: Blog[]
-  ads?: Ad[]
   users: Profile[]
   settings: SiteSettings | null
   stats: {
@@ -37,13 +35,11 @@ export function AdminDashboard({
   blogs: initialBlogs,
   users: initialUsers,
   settings: initialSettings,
-  ads: initialAds = [],
   stats,
 }: AdminDashboardProps) {
   const router = useRouter()
   const [hosts, setHosts] = useState(initialHosts)
   const [blogs, setBlogs] = useState(initialBlogs)
-  const [ads, setAds] = useState<Ad[]>(initialAds)
   const [users, setUsers] = useState(initialUsers)
   const [settings, setSettings] = useState(initialSettings)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -58,31 +54,26 @@ export function AdminDashboard({
 
   const refreshData = async () => {
     const supabase = createClient()
-    const [hostsRes, blogsRes, usersRes, settingsRes, adsRes] = await Promise.all([
+    const [hostsRes, blogsRes, usersRes, settingsRes] = await Promise.all([
       supabase.from("hosts").select("*").order("created_at", { ascending: false }),
       supabase.from("blogs").select("*").order("created_at", { ascending: false }),
       supabase.from("profiles").select("*").order("created_at", { ascending: false }),
       supabase.from("site_settings").select("*").eq("id", 1).single(),
-      supabase.from("ads").select("*").order("created_at", { ascending: false }),
     ])
 
     if (hostsRes.data) setHosts(hostsRes.data)
     if (blogsRes.data) setBlogs(blogsRes.data)
     if (usersRes.data) setUsers(usersRes.data)
     if (settingsRes.data) setSettings(settingsRes.data)
-    if (adsRes.data) setAds(adsRes.data as Ad[])
   }
 
   const navItems = [
     { value: "overview", label: "Overview", icon: LayoutDashboard },
     { value: "hosts", label: "Host Management", icon: Users },
     { value: "blogs", label: "Content Management", icon: FileText },
-    { value: "ads", label: "Ads", icon: Megaphone },
     { value: "settings", label: "Global Settings", icon: Settings },
     { value: "users", label: "User Control", icon: UserCog },
   ]
-
-  const [activeTab, setActiveTab] = useState("overview");
 
   return (
     <div className="flex min-h-screen bg-muted/30">
@@ -90,26 +81,24 @@ export function AdminDashboard({
       <aside className="hidden w-64 flex-col border-r bg-card lg:flex">
         <div className="flex h-16 items-center border-b px-6">
           <Link href="/" className="text-xl font-bold text-primary">
-            {settings?.site_name || "EscortNepal"}
+            {settings?.site_name || "SAATHI NEPAL"}
           </Link>
         </div>
         <nav className="flex-1 space-y-1 p-4">
-          <div className="flex w-full flex-col gap-1">
-            {navItems.map((item) => (
-              <Button
-                key={item.value}
-                variant={activeTab === item.value ? "secondary" : "ghost"}
-                className={`justify-start gap-3 px-4 py-6 ${activeTab === item.value
-                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                    : "text-muted-foreground hover:text-foreground"
-                  }`}
-                onClick={() => setActiveTab(item.value)}
-              >
-                <item.icon className="h-5 w-5" />
-                {item.label}
-              </Button>
-            ))}
-          </div>
+          <Tabs defaultValue="overview" orientation="vertical" className="w-full">
+            <TabsList className="flex h-auto w-full flex-col items-stretch bg-transparent">
+              {navItems.map((item) => (
+                <TabsTrigger
+                  key={item.value}
+                  value={item.value}
+                  className="justify-start gap-3 px-4 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                >
+                  <item.icon className="h-5 w-5" />
+                  {item.label}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </Tabs>
         </nav>
         <div className="border-t p-4">
           <div className="mb-4 text-sm text-muted-foreground">
@@ -126,7 +115,7 @@ export function AdminDashboard({
       <div className="flex flex-1 flex-col">
         <header className="flex h-16 items-center justify-between border-b bg-card px-4 lg:hidden">
           <Link href="/" className="text-xl font-bold text-primary">
-            {settings?.site_name || "EscortNepal"}
+            {settings?.site_name || "SAATHI"}
           </Link>
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild>
@@ -142,12 +131,9 @@ export function AdminDashboard({
                 {navItems.map((item) => (
                   <Button
                     key={item.value}
-                    variant={activeTab === item.value ? "secondary" : "ghost"}
+                    variant="ghost"
                     className="w-full justify-start gap-3 mb-1"
-                    onClick={() => {
-                      setActiveTab(item.value)
-                      setMobileMenuOpen(false)
-                    }}
+                    onClick={() => setMobileMenuOpen(false)}
                   >
                     <item.icon className="h-5 w-5" />
                     {item.label}
@@ -166,12 +152,38 @@ export function AdminDashboard({
 
         {/* Main Content */}
         <main className="flex-1 overflow-auto">
-          {activeTab === "overview" && <AdminOverview stats={stats} hosts={hosts} blogs={blogs} />}
-          {activeTab === "hosts" && <AdminHosts hosts={hosts} onRefresh={refreshData} />}
-          {activeTab === "blogs" && <AdminBlogs blogs={blogs} onRefresh={refreshData} />}
-          {activeTab === "ads" && <AdminAds ads={ads} onRefresh={refreshData} />}
-          {activeTab === "settings" && <AdminSettings settings={settings} onRefresh={refreshData} />}
-          {activeTab === "users" && <AdminUsers users={users} currentUserId={currentUser.id} onRefresh={refreshData} />}
+          <Tabs defaultValue="overview" className="h-full">
+            {/* Hidden TabsList for mobile - controlled by sidebar */}
+            <div className="hidden">
+              <TabsList>
+                {navItems.map((item) => (
+                  <TabsTrigger key={item.value} value={item.value}>
+                    {item.label}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
+
+            <TabsContent value="overview" className="m-0 h-full">
+              <AdminOverview stats={stats} hosts={hosts} blogs={blogs} />
+            </TabsContent>
+
+            <TabsContent value="hosts" className="m-0 h-full">
+              <AdminHosts hosts={hosts} onRefresh={refreshData} />
+            </TabsContent>
+
+            <TabsContent value="blogs" className="m-0 h-full">
+              <AdminBlogs blogs={blogs} onRefresh={refreshData} />
+            </TabsContent>
+
+            <TabsContent value="settings" className="m-0 h-full">
+              <AdminSettings settings={settings} onRefresh={refreshData} />
+            </TabsContent>
+
+            <TabsContent value="users" className="m-0 h-full">
+              <AdminUsers users={users} currentUserId={currentUser.id} onRefresh={refreshData} />
+            </TabsContent>
+          </Tabs>
         </main>
       </div>
     </div>

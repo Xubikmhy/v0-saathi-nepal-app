@@ -3,11 +3,10 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { ModelCard } from "@/components/model-card"
 import { LocationFilter } from "@/components/location-filter"
-import { MOCK_MODELS } from "@/lib/mock-data"
 
 export const metadata = {
-  title: "Gallery | EscortNepal",
-  description: "Browse our exclusive collection of premium Nepali escorts.",
+  title: "Gallery | SAATHI NEPAL",
+  description: "Browse our exclusive collection of premium Nepali models.",
 }
 
 export default async function BrowsePage({
@@ -20,16 +19,6 @@ export default async function BrowsePage({
 
   const { data: settings } = await supabase.from("site_settings").select("*").eq("id", 1).single()
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
-  let isAdmin = false
-  if (user) {
-    const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).single()
-    isAdmin = profile?.role === "agency_admin"
-  }
-
   let query = supabase.from("hosts").select("*").eq("status", "active").order("created_at", { ascending: false })
 
   if (params.location && params.location !== "all") {
@@ -40,34 +29,15 @@ export default async function BrowsePage({
     query = query.or(`name.ilike.%${params.search}%,bio.ilike.%${params.search}%`)
   }
 
-  let { data: models } = await query
+  const { data: models } = await query
 
   // Get unique locations for filter
   const { data: allModels } = await supabase.from("hosts").select("location").eq("status", "active")
-
-  let displayModels = models
-  let locations = [...new Set(allModels?.map((h) => h.location).filter(Boolean))] as string[]
-
-  // Fallback to mock data if database is empty
-  if ((!allModels || allModels.length === 0) && (!models || models.length === 0)) {
-    displayModels = MOCK_MODELS
-    locations = [...new Set(MOCK_MODELS.map((h) => h.location).filter((l): l is string => !!l))]
-
-    // Apply filters to mock data
-    if (params.location && params.location !== "all") {
-      displayModels = displayModels.filter((m) => m.location?.toLowerCase().includes(params.location!.toLowerCase()))
-    }
-    if (params.search) {
-      const search = params.search.toLowerCase()
-      displayModels = displayModels.filter(
-        (m) => m.name.toLowerCase().includes(search) || m.bio?.toLowerCase().includes(search),
-      )
-    }
-  }
+  const locations = [...new Set(allModels?.map((h) => h.location).filter(Boolean))] as string[]
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <SiteHeader settings={settings} isAuthenticated={!!user} isAdmin={isAdmin} />
+      <SiteHeader settings={settings} />
 
       <main className="flex-1">
         <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8">
@@ -85,9 +55,9 @@ export default async function BrowsePage({
           <LocationFilter locations={locations} currentLocation={params.location} currentSearch={params.search} />
 
           {/* Models Grid */}
-          {displayModels && displayModels.length > 0 ? (
+          {models && models.length > 0 ? (
             <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {displayModels.map((model) => (
+              {models.map((model) => (
                 <ModelCard key={model.id} model={model} />
               ))}
             </div>

@@ -12,7 +12,7 @@ interface ModelDetailProps {
 
 const WHATSAPP_NUMBER = "9779701083684"
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hello, I found your portfolio on EscortNepal and would like to make a booking inquiry.",
+  "Hello, I found your portfolio on SAATHI NEPAL and would like to make a booking inquiry.",
 )
 
 export function ModelDetail({ model }: ModelDetailProps) {
@@ -76,8 +76,9 @@ export function ModelDetail({ model }: ModelDetailProps) {
                     <button
                       key={idx}
                       onClick={() => setCurrentImageIndex(idx)}
-                      className={`h-2.5 rounded-full transition-all ${idx === currentImageIndex ? "bg-primary w-8" : "bg-white/60 w-2.5 hover:bg-white/90"
-                        }`}
+                      className={`h-2.5 rounded-full transition-all ${
+                        idx === currentImageIndex ? "bg-primary w-8" : "bg-white/60 w-2.5 hover:bg-white/90"
+                      }`}
                     />
                   ))}
                 </div>
@@ -92,10 +93,11 @@ export function ModelDetail({ model }: ModelDetailProps) {
                 <button
                   key={idx}
                   onClick={() => setCurrentImageIndex(idx)}
-                  className={`flex-shrink-0 overflow-hidden rounded-xl transition-all border-2 ${idx === currentImageIndex
+                  className={`flex-shrink-0 overflow-hidden rounded-xl transition-all border-2 ${
+                    idx === currentImageIndex
                       ? "border-primary shadow-lg"
                       : "border-transparent opacity-70 hover:opacity-100"
-                    }`}
+                  }`}
                 >
                   <img
                     src={img || "/placeholder.svg"}

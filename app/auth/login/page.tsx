@@ -24,19 +24,10 @@ export default function LoginPage() {
     setIsLoading(true)
     setError(null)
 
-    let loginEmail = email;
-    let loginPassword = password;
-    if (email.toLowerCase() === "admin") {
-      loginEmail = "admin@escortnepal.com";
-    } else if (email.toLowerCase() === "superadmin") {
-      loginEmail = "admin@escortnepal.com";
-      loginPassword = "SuperSecret123!";
-    }
-
     try {
       const { error } = await supabase.auth.signInWithPassword({
-        email: loginEmail,
-        password: loginPassword,
+        email,
+        password,
       })
       if (error) throw error
 
@@ -44,25 +35,10 @@ export default function LoginPage() {
       const {
         data: { user },
       } = await supabase.auth.getUser()
-
       if (user) {
-        // Check user_roles first (source of truth for admin)
-        const { data: userRole } = await supabase
-          .from("user_roles")
-          .select("role")
-          .eq("user_id", user.id)
-          .single()
-
-        if (userRole?.role === "admin") {
-          router.push("/admin")
-          router.refresh()
-          return
-        }
-
-        // Fallback to profiles check
         const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).single()
 
-        if (profile?.role === "agency_admin" || profile?.role === "admin") {
+        if (profile?.role === "agency_admin") {
           router.push("/admin")
         } else {
           router.push("/browse")
@@ -83,7 +59,7 @@ export default function LoginPage() {
         <div className="flex flex-col gap-6">
           <div className="text-center">
             <Link href="/" className="text-2xl font-bold text-primary">
-              EscortNepal
+              SAATHI NEPAL
             </Link>
           </div>
 
@@ -96,11 +72,11 @@ export default function LoginPage() {
               <form onSubmit={handleLogin}>
                 <div className="flex flex-col gap-6">
                   <div className="grid gap-2">
-                    <Label htmlFor="email">Email or Username</Label>
+                    <Label htmlFor="email">Email</Label>
                     <Input
                       id="email"
-                      type="text"
-                      placeholder="admin or email@example.com"
+                      type="email"
+                      placeholder="admin@saathi.local"
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}

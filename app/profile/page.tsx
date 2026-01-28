@@ -5,8 +5,8 @@ import { SiteFooter } from "@/components/site-footer"
 import { ProfileForm } from "@/components/profile-form"
 
 export const metadata = {
-  title: "My Profile | EscortNepal",
-  description: "Manage your EscortNepal profile.",
+  title: "My Profile | SAATHI NEPAL",
+  description: "Manage your SAATHI NEPAL profile.",
 }
 
 export default async function ProfilePage() {

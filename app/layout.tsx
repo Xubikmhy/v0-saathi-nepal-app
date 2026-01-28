@@ -19,10 +19,10 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "EscortNepal | Premium Nepali Escorts",
+  title: "SAATHI NEPAL | Premium Nepali Models",
   description:
-    "Discover stunning Nepali escorts for your events, photoshoots, and exclusive companionship. Premium verified profiles.",
-  keywords: ["Nepal", "escorts", "Nepali escorts", "premium", "exclusive", "Kathmandu", "Pokhara", "EscortNepal"],
+    "Discover stunning Nepali models for your events, photoshoots, and exclusive companionship. Premium verified profiles.",
+  keywords: ["Nepal", "models", "Nepali models", "premium", "exclusive", "Kathmandu", "Pokhara"],
   generator: "v0.app",
   icons: {
     icon: [
@@ -59,7 +59,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${playfair.variable} ${inter.variable} font-sans antialiased`} suppressHydrationWarning>
+      <body className={`${playfair.variable} ${inter.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

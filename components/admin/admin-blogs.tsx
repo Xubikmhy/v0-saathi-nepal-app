@@ -25,7 +25,6 @@ import { createClient } from "@/lib/supabase/client"
 import { toast } from "sonner"
 import { Plus, Pencil, Trash2, Search } from "lucide-react"
 import type { Blog } from "@/lib/types"
-import { ImageUpload } from "@/components/ui/image-upload"
 
 interface AdminBlogsProps {
   blogs: Blog[]
@@ -164,11 +163,12 @@ export function AdminBlogs({ blogs, onRefresh }: AdminBlogsProps) {
       </div>
 
       <div className="space-y-2">
-        <Label>Cover Image</Label>
-        <ImageUpload
-          value={formData.cover_image_url ? [formData.cover_image_url] : []}
-          onChange={(urls) => setFormData({ ...formData, cover_image_url: urls[0] || "" })}
-          onRemove={() => setFormData({ ...formData, cover_image_url: "" })}
+        <Label htmlFor="cover_image_url">Cover Image URL</Label>
+        <Input
+          id="cover_image_url"
+          value={formData.cover_image_url}
+          onChange={(e) => setFormData({ ...formData, cover_image_url: e.target.value })}
+          placeholder="https://..."
         />
       </div>
 
@@ -259,8 +259,9 @@ export function AdminBlogs({ blogs, onRefresh }: AdminBlogsProps) {
                 </TableCell>
                 <TableCell>
                   <span
-                    className={`rounded-full px-2 py-1 text-xs ${blog.is_published ? "bg-green-100 text-green-700" : "bg-yellow-100 text-yellow-700"
-                      }`}
+                    className={`rounded-full px-2 py-1 text-xs ${
+                      blog.is_published ? "bg-green-100 text-green-700" : "bg-yellow-100 text-yellow-700"
+                    }`}
                   >
                     {blog.is_published ? "Published" : "Draft"}
                   </span>

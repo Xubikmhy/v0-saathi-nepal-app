@@ -5,8 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
 
 export const metadata = {
-  title: "Blog | EscortNepal",
-  description: "Read the latest travel tips, guides, and stories from EscortNepal.",
+  title: "Blog | SAATHI NEPAL",
+  description: "Read the latest travel tips, guides, and stories from SAATHI NEPAL.",
 }
 
 export default async function BlogPage() {

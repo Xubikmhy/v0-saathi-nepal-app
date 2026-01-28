@@ -6,48 +6,18 @@ import { ModelCard } from "@/components/model-card"
 import { createClient } from "@/lib/supabase/server"
 import { ArrowRight, Sparkles, Crown, Diamond, Star } from "lucide-react"
 
-import { MOCK_MODELS } from "@/lib/mock-data"
-import { AdBanner } from "@/components/ad-banner"
-import type { Ad } from "@/lib/types"
-
 export default async function HomePage() {
   const supabase = await createClient()
 
   const { data: settings } = await supabase.from("site_settings").select("*").eq("id", 1).single()
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
-  let isAdmin = false
-  if (user) {
-    const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).single()
-    isAdmin = profile?.role === "agency_admin"
-  }
-
-  let { data: featuredModels } = await supabase.from("hosts").select("*").eq("status", "active").limit(6)
-
-  const { data: headerAds } = await supabase
-    .from("ads")
-    .select("*")
-    .eq("position", "header")
-    .eq("is_active", true)
-    .limit(1)
-
-  if (!featuredModels || featuredModels.length === 0) {
-    featuredModels = MOCK_MODELS
-  }
+  const { data: featuredModels } = await supabase.from("hosts").select("*").eq("status", "active").limit(6)
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <SiteHeader settings={settings} isAuthenticated={!!user} isAdmin={isAdmin} />
+      <SiteHeader settings={settings} />
 
       <main className="flex-1">
-        {headerAds && headerAds.length > 0 && (
-          <div className="mx-auto max-w-7xl px-4 lg:px-8 pt-6">
-            <AdBanner ad={headerAds[0] as Ad} />
-          </div>
-        )}
         {/* Hero Section - Premium Dark */}
         <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
           {/* Background with overlay */}

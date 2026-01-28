@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { MessageCircle } from "lucide-react"
+import { Diamond, MessageCircle } from "lucide-react"
 import type { SiteSettings } from "@/lib/types"
 
 interface SiteFooterProps {
@@ -13,13 +13,13 @@ export function SiteFooter({ settings }: SiteFooterProps) {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-3">
-              <img src="/logo.svg" alt="EscortNepal Logo" className="h-6 w-6" />
+              <Diamond className="h-6 w-6 text-primary" />
               <span className="font-serif text-lg font-semibold tracking-[0.15em] text-foreground uppercase">
-                {settings?.site_name || "EscortNepal"}
+                {settings?.site_name || "SAATHI NEPAL"}
               </span>
             </Link>
             <p className="mt-6 text-sm font-normal leading-relaxed text-foreground/75">
-              Premium collection of Nepal&apos;s most beautiful escorts. Exclusive profiles for distinguished clients.
+              Premium collection of Nepal&apos;s most beautiful models. Exclusive profiles for distinguished clients.
             </p>
           </div>
 
@@ -61,10 +61,10 @@ export function SiteFooter({ settings }: SiteFooterProps) {
               </li>
               <li>
                 <Link
-                  href="/admin"
+                  href="/auth/login"
                   className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
                 >
-                  Admin Dashboard
+                  Admin
                 </Link>
               </li>
             </ul>
@@ -75,7 +75,7 @@ export function SiteFooter({ settings }: SiteFooterProps) {
           <div className="flex flex-col items-center gap-4">
             <div className="h-px w-20 bg-gradient-to-r from-transparent via-primary to-transparent" />
             <p className="text-center text-sm font-medium tracking-widest uppercase text-foreground/70">
-              © {new Date().getFullYear()} {settings?.site_name || "EscortNepal"}. All rights reserved.
+              © {new Date().getFullYear()} {settings?.site_name || "SAATHI NEPAL"}
             </p>
           </div>
         </div>
