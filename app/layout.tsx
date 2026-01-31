@@ -18,6 +18,8 @@ const inter = Inter({
   variable: "--font-sans",
 })
 
+      <meta name="google-site-verification" content="B3BX8VYGgrI_a2hlNTX0h9BkCZpL7S-SsmcNQ_198Gk" />
+
 export const metadata: Metadata = {
   title: "EscortNepal | Premium Nepali Escorts",
   description:
