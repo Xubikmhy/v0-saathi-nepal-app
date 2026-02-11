@@ -13,13 +13,13 @@ export function SiteFooter({ settings }: SiteFooterProps) {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-3">
-              <img src="/logo.svg" alt="EscortNepal Logo" className="h-6 w-6" />
+              <img src="/logo.svg" alt="EscortNepal - Premium Nepali Escorts" className="h-6 w-6" width="24" height="24" />
               <span className="font-serif text-lg font-semibold tracking-[0.15em] text-foreground uppercase">
                 {settings?.site_name || "EscortNepal"}
               </span>
             </Link>
             <p className="mt-6 text-sm font-normal leading-relaxed text-foreground/75">
-              Premium collection of Nepal&apos;s most beautiful escorts. Exclusive profiles for distinguished clients.
+              Premium collection of Nepal&apos;s most beautiful and verified escorts. Exclusive profiles for distinguished clients seeking professional companionship and modeling services.
             </p>
           </div>
 

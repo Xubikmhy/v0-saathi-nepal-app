@@ -48,8 +48,9 @@ export function ModelDetail({ model }: ModelDetailProps) {
                 allImages[currentImageIndex] ||
                 `/placeholder.svg?height=700&width=500&query=beautiful young Nepali woman model portrait elegant ${model.name || "/placeholder.svg"}`
               }
-              alt={`${model.name} - Photo ${currentImageIndex + 1}`}
+              alt={`${model.name}${model.age ? `, ${model.age} years old` : ""}${model.location ? ` from ${model.location}` : ""} - Premium Nepali escort model - Photo ${currentImageIndex + 1}`}
               className="h-full w-full object-cover"
+              decoding="async"
             />
 
             {allImages.length > 1 && (
@@ -99,8 +100,10 @@ export function ModelDetail({ model }: ModelDetailProps) {
                 >
                   <img
                     src={img || "/placeholder.svg"}
-                    alt={`Thumbnail ${idx + 1}`}
+                    alt={`${model.name} photo gallery - Thumbnail ${idx + 1}`}
                     className="h-20 w-20 object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </button>
               ))}
