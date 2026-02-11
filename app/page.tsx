@@ -1,4 +1,5 @@
 import Link from "next/link"
+import type { Metadata } from "next"
 import { Button } from "@/components/ui/button"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
@@ -9,6 +10,18 @@ import { ArrowRight, Sparkles, Crown, Diamond, Star } from "lucide-react"
 import { MOCK_MODELS } from "@/lib/mock-data"
 import { AdBanner } from "@/components/ad-banner"
 import type { Ad } from "@/lib/types"
+
+export const metadata: Metadata = {
+  title: "EscortNepal | Premium Nepali Escorts & Models in Kathmandu & Pokhara",
+  description:
+    "Discover stunning, verified Nepali escorts and premium models for exclusive companionship, events, and photoshoots. Direct WhatsApp contact with beautiful escorts in Kathmandu, Pokhara, and across Nepal.",
+  openGraph: {
+    title: "EscortNepal | Premium Nepali Escorts & Models",
+    description:
+      "Discover verified Nepali escorts and premium models for exclusive companionship and events.",
+    url: "https://escortnepal.com",
+  },
+}
 
 export default async function HomePage() {
   const supabase = await createClient()
@@ -49,7 +62,7 @@ export default async function HomePage() {
           </div>
         )}
         {/* Hero Section - Premium Dark */}
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden" aria-label="Hero section - Discover premium Nepali escorts">
           {/* Background with overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-background via-card to-background" />
           <div className="absolute inset-0 opacity-20">
@@ -112,54 +125,56 @@ export default async function HomePage() {
         </section>
 
         {/* Features Section - Brighter text */}
-        <section className="py-24 border-t border-border/50">
+        <section className="py-24 border-t border-border/50" aria-label="Why choose EscortNepal">
           <div className="mx-auto max-w-7xl px-4 lg:px-8">
+            <h2 className="sr-only">Why choose EscortNepal</h2>
             <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
-              <div className="text-center">
-                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border-2 border-primary/40 bg-primary/10">
+              <article className="text-center">
+                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border-2 border-primary/40 bg-primary/10" aria-hidden="true">
                   <Crown className="h-9 w-9 text-primary" />
                 </div>
                 <h3 className="mt-6 font-serif text-2xl font-semibold tracking-wide text-foreground">
                   Premium Selection
                 </h3>
                 <p className="mt-4 text-base font-normal text-foreground/75 leading-relaxed">
-                  Carefully curated collection of Nepal&apos;s most beautiful and professional models.
+                  Carefully curated collection of Nepal&apos;s most beautiful and professional models available for exclusive companionship and events.
                 </p>
-              </div>
-              <div className="text-center">
-                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border-2 border-primary/40 bg-primary/10">
+              </article>
+              <article className="text-center">
+                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border-2 border-primary/40 bg-primary/10" aria-hidden="true">
                   <Diamond className="h-9 w-9 text-primary" />
                 </div>
                 <h3 className="mt-6 font-serif text-2xl font-semibold tracking-wide text-foreground">
                   Verified Profiles
                 </h3>
                 <p className="mt-4 text-base font-normal text-foreground/75 leading-relaxed">
-                  Every profile is thoroughly verified for authenticity and professionalism.
+                  Every profile is thoroughly verified for authenticity and professionalism to ensure safety and reliability.
                 </p>
-              </div>
-              <div className="text-center">
-                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border-2 border-primary/40 bg-primary/10">
+              </article>
+              <article className="text-center">
+                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border-2 border-primary/40 bg-primary/10" aria-hidden="true">
                   <Sparkles className="h-9 w-9 text-primary" />
                 </div>
                 <h3 className="mt-6 font-serif text-2xl font-semibold tracking-wide text-foreground">Direct Contact</h3>
                 <p className="mt-4 text-base font-normal text-foreground/75 leading-relaxed">
-                  Connect instantly via WhatsApp for inquiries and bookings.
+                  Connect instantly via WhatsApp for quick inquiries and secure bookings with our featured escorts.
                 </p>
-              </div>
+              </article>
             </div>
           </div>
         </section>
 
         {/* Featured Models Section */}
         {featuredModels && featuredModels.length > 0 && (
-          <section className="py-24 border-t border-border/50">
+          <section className="py-24 border-t border-border/50" aria-label="Featured escort models">
             <div className="mx-auto max-w-7xl px-4 lg:px-8">
               <div className="mb-16 text-center">
                 <p className="text-sm font-semibold tracking-[0.3em] uppercase text-primary">Our Collection</p>
                 <h2 className="mt-4 font-serif text-4xl lg:text-5xl font-bold tracking-wide text-foreground">
                   Featured Models
                 </h2>
-                <div className="mx-auto mt-6 h-1 w-32 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
+                <p className="sr-only">Browse our selection of verified, premium Nepali escort models available for exclusive companionship and events</p>
+                <div className="mx-auto mt-6 h-1 w-32 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" aria-hidden="true" />
               </div>
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {featuredModels.map((model) => (

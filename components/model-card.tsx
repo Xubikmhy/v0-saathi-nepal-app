@@ -26,7 +26,9 @@ export function ModelCard({ model }: ModelCardProps) {
               model.profile_image_url ||
               `/placeholder.svg?height=700&width=500&query=beautiful young Nepali woman model portrait elegant ${model.name || "/placeholder.svg"}`
             }
-            alt={model.name}
+            alt={`${model.name}${model.age ? `, ${model.age} years old` : ""}${model.location ? ` from ${model.location}` : ""} - Premium Nepali escort model on EscortNepal`}
+            loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover transition-all duration-700 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90" />

@@ -5,9 +5,25 @@ import { ModelCard } from "@/components/model-card"
 import { LocationFilter } from "@/components/location-filter"
 import { MOCK_MODELS } from "@/lib/mock-data"
 
-export const metadata = {
-  title: "Gallery | EscortNepal",
-  description: "Browse our exclusive collection of premium Nepali escorts.",
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Escort Gallery | Browse Premium Nepali Models | EscortNepal",
+  description:
+    "Browse our exclusive gallery of verified Nepali escorts and premium models. Filter by location (Kathmandu, Pokhara) and find the perfect model for your needs. Verified profiles with direct WhatsApp contact.",
+  keywords: [
+    "Nepali escorts gallery",
+    "escort models Nepal",
+    "beautiful women escort",
+    "verified escorts",
+    "Kathmandu escorts",
+    "escort services",
+  ],
+  openGraph: {
+    title: "Escort Gallery | Premium Nepali Models",
+    description: "Browse our exclusive collection of verified Nepali escorts and models",
+    url: "https://escortnepal.com/browse",
+  },
 }
 
 export default async function BrowsePage({
@@ -74,11 +90,11 @@ export default async function BrowsePage({
           <div className="mb-12 text-center">
             <p className="text-sm font-semibold tracking-[0.3em] uppercase text-primary">Our Collection</p>
             <h1 className="mt-4 font-serif text-4xl lg:text-5xl font-bold tracking-wide text-foreground">
-              Model Gallery
+              Escort Gallery
             </h1>
-            <div className="mx-auto mt-5 h-1 w-28 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
+            <div className="mx-auto mt-5 h-1 w-28 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" aria-hidden="true" />
             <p className="mt-6 text-lg font-medium text-foreground/80">
-              Discover Nepal&apos;s most beautiful and professional models
+              Discover Nepal&apos;s most beautiful and verified professional escorts available for exclusive companionship
             </p>
           </div>
 
@@ -93,8 +109,8 @@ export default async function BrowsePage({
             </div>
           ) : (
             <div className="mt-20 text-center">
-              <p className="text-xl font-medium text-foreground/80">No models found.</p>
-              <p className="mt-3 text-base font-normal text-foreground/60">Try adjusting your filters.</p>
+              <p className="text-xl font-medium text-foreground/80">No models found matching your criteria.</p>
+              <p className="mt-3 text-base font-normal text-foreground/60">Try adjusting your location or search filters.</p>
             </div>
           )}
         </div>
