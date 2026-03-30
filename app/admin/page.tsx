@@ -1,6 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { AdminDashboard } from "@/components/admin/admin-dashboard";
-import { requireGodMode } from "@/lib/authGuard";
+import { redirect } from "next/navigation";
 import { AdminSidebar } from "@/components/AdminSidebar";
 
 export const metadata = {
@@ -9,8 +9,24 @@ export const metadata = {
 }
 
 export default async function AdminPage() {
-  // Ensure only god‑mode admin can access
-  const profile = await requireGodMode();
+  // Ensure only agency_admin can access
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  if (!user) {
+    redirect('/admin/login');
+  }
+
+  const { data: profile, error } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+
+  if (error || !profile || profile.role !== 'agency_admin') {
+    console.log('[v0] Access denied. Role:', profile?.role);
+    redirect('/');
+  }
 
   const supabase = await createClient();
 

@@ -75,12 +75,29 @@ CREATE TABLE IF NOT EXISTS public.favorites (
   UNIQUE(user_id, host_id)
 );
 
+-- Ads table (for ad banners)
+CREATE TABLE IF NOT EXISTS public.ads (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  title TEXT NOT NULL,
+  image_url TEXT,
+  link_url TEXT,
+  html TEXT,
+  position TEXT DEFAULT 'header' CHECK (position IN ('header', 'sidebar', 'footer', 'inline')),
+  is_active BOOLEAN DEFAULT TRUE,
+  start_at TIMESTAMPTZ,
+  end_at TIMESTAMPTZ,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
 -- Create indexes for better performance
 CREATE INDEX IF NOT EXISTS idx_hosts_status ON public.hosts(status);
 CREATE INDEX IF NOT EXISTS idx_hosts_slug ON public.hosts(slug);
 CREATE INDEX IF NOT EXISTS idx_blogs_published ON public.blogs(is_published);
 CREATE INDEX IF NOT EXISTS idx_blogs_slug ON public.blogs(slug);
 CREATE INDEX IF NOT EXISTS idx_favorites_user ON public.favorites(user_id);
+CREATE INDEX IF NOT EXISTS idx_ads_position ON public.ads(position);
+CREATE INDEX IF NOT EXISTS idx_ads_active ON public.ads(is_active);
 
 -- Enable Row Level Security on all tables
 ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
@@ -88,6 +105,7 @@ ALTER TABLE public.hosts ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.blogs ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.site_settings ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.favorites ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.ads ENABLE ROW LEVEL SECURITY;
 
 -- Drop existing policies if they exist
 DROP POLICY IF EXISTS "hosts_public_select" ON public.hosts;
@@ -98,6 +116,10 @@ DROP POLICY IF EXISTS "hosts_admin_delete" ON public.hosts;
 DROP POLICY IF EXISTS "site_settings_public_select" ON public.site_settings;
 DROP POLICY IF EXISTS "site_settings_admin_update" ON public.site_settings;
 DROP POLICY IF EXISTS "site_settings_admin_insert" ON public.site_settings;
+DROP POLICY IF EXISTS "ads_public_select" ON public.ads;
+DROP POLICY IF EXISTS "ads_admin_insert" ON public.ads;
+DROP POLICY IF EXISTS "ads_admin_update" ON public.ads;
+DROP POLICY IF EXISTS "ads_admin_delete" ON public.ads;
 
 -- HOSTS RLS Policies - Public can view active hosts
 CREATE POLICY "hosts_public_select" ON public.hosts
@@ -140,6 +162,34 @@ CREATE POLICY "site_settings_admin_update" ON public.site_settings
 -- Admin can insert site settings (for initial setup)
 CREATE POLICY "site_settings_admin_insert" ON public.site_settings
   FOR INSERT WITH CHECK (
+    EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role = 'agency_admin')
+  );
+
+-- ADS RLS Policies - Public can view active ads
+CREATE POLICY "ads_public_select" ON public.ads
+  FOR SELECT USING (is_active = TRUE);
+
+-- Admin can view all ads
+CREATE POLICY "ads_admin_select" ON public.ads
+  FOR SELECT USING (
+    EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role = 'agency_admin')
+  );
+
+-- Admin can insert ads
+CREATE POLICY "ads_admin_insert" ON public.ads
+  FOR INSERT WITH CHECK (
+    EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role = 'agency_admin')
+  );
+
+-- Admin can update ads
+CREATE POLICY "ads_admin_update" ON public.ads
+  FOR UPDATE USING (
+    EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role = 'agency_admin')
+  );
+
+-- Admin can delete ads
+CREATE POLICY "ads_admin_delete" ON public.ads
+  FOR DELETE USING (
     EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role = 'agency_admin')
   );
 

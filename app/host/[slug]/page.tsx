@@ -2,8 +2,9 @@ import { createClient } from "@/lib/supabase/server"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { ModelDetail } from "@/components/model-detail"
-import { notFound } from "next/navigation"
+import { redirect } from "next/navigation"
 import type { Metadata } from "next"
+import { MOCK_MODELS } from "@/lib/mock-data"
 
 interface HostPageProps {
   params: Promise<{ slug: string }>
@@ -21,7 +22,15 @@ export async function generateMetadata({ params }: HostPageProps): Promise<Metad
     .single()
 
   if (!host) {
-    return { title: "Host Not Found | EscortNepal" }
+    // Try to find in mock data as fallback
+    const mockHost = MOCK_MODELS.find(m => m.slug === slug)
+    if (mockHost) {
+      return {
+        title: `${mockHost.name} | EscortNepal`,
+        description: mockHost.bio || `Connect with ${mockHost.name}, a professional model in ${mockHost.location || "Nepal"}.`,
+      }
+    }
+    return { title: "Model | EscortNepal" }
   }
 
   return {
@@ -38,8 +47,15 @@ export default async function HostPage({ params }: HostPageProps) {
 
   const { data: host } = await supabase.from("hosts").select("*").eq("slug", slug).eq("status", "active").single()
 
+  // If host not found in database, check mock data
+  let displayHost = host
   if (!host) {
-    notFound()
+    const mockHost = MOCK_MODELS.find(m => m.slug === slug)
+    if (!mockHost) {
+      // Redirect to home if not found anywhere
+      redirect("/")
+    }
+    displayHost = mockHost
   }
 
   return (
@@ -47,7 +63,7 @@ export default async function HostPage({ params }: HostPageProps) {
       <SiteHeader settings={settings} />
 
       <main className="flex-1">
-        <ModelDetail model={host} />
+        <ModelDetail model={displayHost} />
       </main>
 
       <SiteFooter settings={settings} />
