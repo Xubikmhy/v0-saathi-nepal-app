@@ -46,23 +46,10 @@ export default function LoginPage() {
       } = await supabase.auth.getUser()
 
       if (user) {
-        // Check user_roles first (source of truth for admin)
-        const { data: userRole } = await supabase
-          .from("user_roles")
-          .select("role")
-          .eq("user_id", user.id)
-          .single()
-
-        if (userRole?.role === "admin") {
-          router.push("/admin")
-          router.refresh()
-          return
-        }
-
-        // Fallback to profiles check
+        // Check profiles for admin role
         const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).single()
 
-        if (profile?.role === "agency_admin" || profile?.role === "admin") {
+        if (profile?.role === "agency_admin") {
           router.push("/admin")
         } else {
           router.push("/browse")
