@@ -16,10 +16,13 @@ const WHATSAPP_MESSAGE = encodeURIComponent(
 
 export function ModelCard({ model }: ModelCardProps) {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`
+  
+  // Ensure we have a valid slug to navigate to
+  const hostLink = model.slug ? `/host/${model.slug}` : '/browse'
 
   return (
     <div className="group relative overflow-hidden rounded-xl bg-card border border-border/30 shadow-xl shadow-black/20">
-      <Link href={`/host/${model.slug}`}>
+      <Link href={hostLink}>
         <div className="aspect-[3/4] overflow-hidden">
           <img
             src={
