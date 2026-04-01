@@ -928,3 +928,79 @@ Expected a semicolon
 [00:41:31.571] Server  ERROR   [v0] Error creating model: {}
 [00:41:32.164] Browser LOG     [v0] Server response: {"error":"Failed to create model"}
 [00:41:32.164] Browser ERROR   [v0] Submit error: {}
+[00:43:43.831] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:43:43.831] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:43:43.831] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/","r":"https://v0.app/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775057187582} /_vercel/insights/view
+[01:00:13.229] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:00:13.229] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[01:00:13.229] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/","r":"https://v0.app/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775058176548} /_vercel/insights/view
+[01:00:26.363] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login color: rgb(120, 120, 120) color: inherit {"dp":"/admin/login","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775058189812} /_vercel/insights/view
+[01:00:40.818] Browser LOG     [v0] Loading models...
+[01:00:40.819] Browser LOG     [v0] Loading models...
+[01:00:40.819] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin color: rgb(120, 120, 120) color: inherit {"dp":"/admin","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775058206235} /_vercel/insights/view
+[01:00:41.514] Server  LOG     [v0] Fetched models: 0
+[01:00:42.147] Browser LOG     [v0] Models loaded: {"models":[]}
+[01:00:42.453] Server  LOG     [v0] Fetched models: 0
+[01:00:43.367] Browser LOG     [v0] Models loaded: {"models":[]}
+[01:01:09.425] Browser LOG     [v0] Uploading image...
+[01:01:10.475] Server  LOG     [v0] Uploading file: "images (10).jpeg" "Type:" "image/jpeg" "Size:" 17079
+[01:01:10.478] Server  LOG     [v0] Uploading to bucket: "1775058236419-lhwbbv.jpeg"
+[01:01:10.583] Server  ERROR   [v0] Supabase upload error: StorageApiError: new row violates row-level security policy
+[01:01:11.038] Browser LOG     [v0] Upload response: {"error":"new row violates row-level security policy"}
+[01:01:11.038] Browser ERROR   [v0] Upload error: {}
+[01:01:12.673] Browser LOG     [v0] Submitting: Create new
+[01:01:13.247] Server  LOG     [v0] Creating model: "Prakriti subedi"
+[01:01:13.380] Server  LOG     [v0] Model created: "c32cb465-b285-4237-b9ed-884bc216ff4d"
+[01:01:13.912] Browser LOG     [v0] Server response: {"model":{"age":25,"bio":"Great","city":"Pokhara","created_at":"2026-04-01T15:43:59.223971+00:00","id":"c32cb465-b285-4237-b9ed-884bc216ff4d","image_url":null,"is_featured":true,"name":"Prakriti subedi","updated_at":"2026-04-01T15:43:59.223971+00:00","whatsapp":"9864614814"}}
+[01:01:13.912] Browser LOG     [v0] Loading models...
+[01:01:14.431] Server  LOG     [v0] Fetched models: 1
+[01:01:14.969] Browser LOG     [v0] Models loaded: {"models":[{"age":25,"bio":"Great","city":"Pokhara","created_at":"2026-04-01T15:43:59.223971+00:00","id":"c32cb465-b285-4237-b9ed-884bc216ff4d","image_url":null,"is_featured":true,"name":"Prakriti subedi","updated_at":"2026-04-01T15:43:59.223971+00:00","whatsapp":"9864614814"}]}
+[01:01:40.852] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login color: rgb(120, 120, 120) color: inherit {"dp":"/admin/login","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775058266231} /_vercel/insights/view
+[01:02:06.105] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:02:06.627] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:02:06.627] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/admin/login","route":"/admin/login"}
+[01:02:06.627] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login color: rgb(120, 120, 120) color: inherit {"dp":"/admin/login","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775058291532} /_vercel/insights/view
+[01:02:36.649] Browser LOG     [v0] Loading models...
+[01:02:36.649] Browser LOG     [v0] Loading models...
+[01:02:36.649] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin color: rgb(120, 120, 120) color: inherit {"dp":"/admin","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775058322073} /_vercel/insights/view
+[01:02:37.399] Server  LOG     [v0] Fetched models: 1
+[01:02:38.019] Browser LOG     [v0] Models loaded: {"models":[{"age":25,"bio":"Great","city":"Pokhara","created_at":"2026-04-01T15:43:59.223971+00:00","id":"c32cb465-b285-4237-b9ed-884bc216ff4d","image_url":null,"is_featured":true,"name":"Prakriti subedi","updated_at":"2026-04-01T15:43:59.223971+00:00","whatsapp":"9864614814"}]}
+[01:02:38.277] Server  LOG     [v0] Fetched models: 1
+[01:02:38.898] Browser LOG     [v0] Models loaded: {"models":[{"age":25,"bio":"Great","city":"Pokhara","created_at":"2026-04-01T15:43:59.223971+00:00","id":"c32cb465-b285-4237-b9ed-884bc216ff4d","image_url":null,"is_featured":true,"name":"Prakriti subedi","updated_at":"2026-04-01T15:43:59.223971+00:00","whatsapp":"9864614814"}]}
+[01:02:51.744] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login color: rgb(120, 120, 120) color: inherit {"dp":"/admin/login","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775058337162} /_vercel/insights/view
+[01:02:53.589] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin color: rgb(120, 120, 120) color: inherit {"dp":"/admin","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775058338999} /_vercel/insights/view
+[01:02:55.358] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login color: rgb(120, 120, 120) color: inherit {"dp":"/admin/login","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775058340780} /_vercel/insights/view
+[01:03:02.671] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:03:02.671] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:03:02.671] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/admin/login","route":"/admin/login"}
+[01:03:02.671] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login color: rgb(120, 120, 120) color: inherit {"dp":"/admin/login","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login","r":"https://v0.app/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775058344564} /_vercel/insights/view
+[01:03:41.193] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:03:41.193] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[01:03:41.193] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/","r":"https://v0.app/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775058384601} /_vercel/insights/view
+[01:04:04.265] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login color: rgb(120, 120, 120) color: inherit {"dp":"/admin/login","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775058409679} /_vercel/insights/view
+[01:04:09.596] Browser LOG     [v0] Loading models...
+[01:04:09.596] Browser LOG     [v0] Loading models...
+[01:04:09.596] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin color: rgb(120, 120, 120) color: inherit {"dp":"/admin","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775058414992} /_vercel/insights/view
+[01:04:09.998] Server  LOG     [v0] Fetched models: 1
+[01:04:10.459] Browser LOG     [v0] Models loaded: {"models":[{"age":25,"bio":"Great","city":"Pokhara","created_at":"2026-04-01T15:43:59.223971+00:00","id":"c32cb465-b285-4237-b9ed-884bc216ff4d","image_url":null,"is_featured":true,"name":"Prakriti subedi","updated_at":"2026-04-01T15:43:59.223971+00:00","whatsapp":"9864614814"}]}
+[01:04:10.877] Server  LOG     [v0] Fetched models: 1
+[01:04:12.833] Browser LOG     [v0] Models loaded: {"models":[{"age":25,"bio":"Great","city":"Pokhara","created_at":"2026-04-01T15:43:59.223971+00:00","id":"c32cb465-b285-4237-b9ed-884bc216ff4d","image_url":null,"is_featured":true,"name":"Prakriti subedi","updated_at":"2026-04-01T15:43:59.223971+00:00","whatsapp":"9864614814"}]}
+[01:07:42.907] Browser LOG     [v0] Uploading image...
+[01:07:43.862] Server  LOG     [v0] Uploading file: "images (10).jpeg" "Type:" "image/jpeg" "Size:" 17079
+[01:07:43.865] Server  LOG     [v0] Uploading to bucket: "1775058629806-90z7x.jpeg"
+[01:07:44.218] Server  ERROR   [v0] Supabase upload error: StorageApiError: new row violates row-level security policy
+[01:07:44.974] Browser LOG     [v0] Upload response: {"error":"new row violates row-level security policy"}
+[01:07:44.974] Browser ERROR   [v0] Upload error: {}
+[01:07:47.078] Browser LOG     [v0] Submitting: Update c32cb465-b285-4237-b9ed-884bc216ff4d
+[01:07:48.186] Server  LOG     [v0] Updating model: "c32cb465-b285-4237-b9ed-884bc216ff4d"
+[01:07:48.505] Server  LOG     [v0] Model updated: "c32cb465-b285-4237-b9ed-884bc216ff4d"
+[01:07:49.178] Browser LOG     [v0] Server response: {"model":{"age":25,"bio":"Great","city":"Pokhara","created_at":"2026-04-01T15:43:59.223971+00:00","id":"c32cb465-b285-4237-b9ed-884bc216ff4d","image_url":null,"is_featured":true,"name":"Prakriti subedi","updated_at":"2026-04-01T15:50:34.128+00:00","whatsapp":"9864614814"}}
+[01:07:49.178] Browser LOG     [v0] Loading models...
+[01:07:49.694] Server  LOG     [v0] Fetched models: 1
+[01:07:50.304] Browser LOG     [v0] Models loaded: {"models":[{"age":25,"bio":"Great","city":"Pokhara","created_at":"2026-04-01T15:43:59.223971+00:00","id":"c32cb465-b285-4237-b9ed-884bc216ff4d","image_url":null,"is_featured":true,"name":"Prakriti subedi","updated_at":"2026-04-01T15:50:34.128+00:00","whatsapp":"9864614814"}]}
+[01:10:31.866] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:10:31.866] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[01:10:31.866] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/","r":"https://v0.app/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775058794609} /_vercel/insights/view
+[01:11:29.909] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:11:29.909] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[01:11:29.909] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/","r":"https://v0.app/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775058853452} /_vercel/insights/view
