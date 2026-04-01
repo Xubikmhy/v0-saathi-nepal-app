@@ -793,3 +793,138 @@ Expected a semicolon
 [00:24:47.967] Server  ERROR   [v0] Error creating model: {}
 [00:24:48.422] Browser LOG     [v0] Server response: {"error":"Failed to create model"}
 [00:24:48.422] Browser ERROR   [v0] Submit error: {}
+[00:24:54.024] Server  LOG        Reload env: .env.development.local
+[00:25:29.034] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:25:29.034] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:25:29.034] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/","r":"https://v0.app/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775056063827} /_vercel/insights/view
+[00:25:35.615] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login color: rgb(120, 120, 120) color: inherit {"dp":"/admin/login","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775056101076} /_vercel/insights/view
+[00:25:46.071] Browser LOG     [v0] Loading models...
+[00:25:46.071] Browser LOG     [v0] Loading models...
+[00:25:46.071] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin color: rgb(120, 120, 120) color: inherit {"dp":"/admin","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775056111528} /_vercel/insights/view
+[00:25:46.501] Server  ERROR   [v0] Supabase error: {}
+[00:25:46.502] Server  ERROR   [v0] Error fetching models: {}
+[00:25:47.168] Browser LOG     [v0] Models loaded: {"error":"Failed to fetch models"}
+[00:25:47.292] Server  ERROR   [v0] Supabase error: {}
+[00:25:47.293] Server  ERROR   [v0] Error fetching models: {}
+[00:25:49.857] Browser LOG     [v0] Models loaded: {"error":"Failed to fetch models"}
+[00:27:32.612] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:27:32.613] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:27:32.613] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/","r":"https://v0.app/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775056215293} /_vercel/insights/view
+[00:27:37.789] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login color: rgb(120, 120, 120) color: inherit {"dp":"/admin/login","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775056223208} /_vercel/insights/view
+[00:27:45.196] Browser LOG     [v0] Loading models...
+[00:27:45.196] Browser LOG     [v0] Loading models...
+[00:27:45.196] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin color: rgb(120, 120, 120) color: inherit {"dp":"/admin","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775056230464} /_vercel/insights/view
+[00:27:45.709] Server  ERROR   [v0] Supabase error: {}
+[00:27:45.709] Server  ERROR   [v0] Error fetching models: {}
+[00:27:46.320] Browser LOG     [v0] Models loaded: {"error":"Failed to fetch models"}
+[00:27:46.734] Server  ERROR   [v0] Supabase error: {}
+[00:27:46.735] Server  ERROR   [v0] Error fetching models: {}
+[00:27:47.430] Browser LOG     [v0] Models loaded: {"error":"Failed to fetch models"}
+[00:28:10.365] Browser LOG     [v0] Uploading image...
+[00:28:11.357] Server  LOG     [v0] Uploading file: "images (10).jpeg" "Type:" "image/jpeg" "Size:" 17079
+[00:28:11.360] Server  LOG     [v0] Uploading to bucket: "1775056257301-7xdky.jpeg"
+[00:28:11.457] Server  ERROR   [v0] Supabase upload error: StorageApiError: new row violates row-level security policy
+[00:28:12.088] Browser LOG     [v0] Upload response: {"error":"new row violates row-level security policy"}
+[00:28:12.088] Browser ERROR   [v0] Upload error: {}
+[00:28:13.097] Browser LOG     [v0] Submitting: Create new
+[00:28:13.551] Server  LOG     [v0] Creating model: "Supriya khanal"
+[00:28:13.585] Server  ERROR   [v0] Insert error: {}
+[00:28:13.585] Server  ERROR   [v0] Error creating model: {}
+[00:28:14.154] Browser LOG     [v0] Server response: {"error":"Failed to create model"}
+[00:28:14.154] Browser ERROR   [v0] Submit error: {}
+[00:28:17.982] Browser LOG     [v0] Submitting: Create new
+[00:28:18.296] Server  LOG     [v0] Creating model: "Supriya khanal"
+[00:28:18.388] Server  ERROR   [v0] Insert error: {}
+[00:28:18.389] Server  ERROR   [v0] Error creating model: {}
+[00:28:18.974] Browser LOG     [v0] Server response: {"error":"Failed to create model"}
+[00:28:18.974] Browser ERROR   [v0] Submit error: {}
+[00:29:43.718] Server  ERROR   [v0] Supabase error: {}
+[00:29:43.718] Server  ERROR   [v0] Error fetching models: {}
+[00:29:45.790] Browser LOG     [v0] Loading models...
+[00:29:45.790] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:29:45.790] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/admin","route":"/admin"}
+[00:29:45.790] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin color: rgb(120, 120, 120) color: inherit {"dp":"/admin","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin","r":"https://v0.app/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775056348635} /_vercel/insights/view
+[00:29:45.790] Browser LOG     [v0] Models loaded: {"error":"Failed to fetch models"}
+[00:29:50.930] Browser ERROR   [v0] Submit error: {}
+[00:30:24.301] Browser LOG     [v0] Uploading image...
+[00:30:25.140] Server  LOG     [v0] Uploading file: "images (10).jpeg" "Type:" "image/jpeg" "Size:" 17079
+[00:30:25.142] Server  LOG     [v0] Uploading to bucket: "1775056391083-ija81k.jpeg"
+[00:30:25.419] Server  ERROR   [v0] Supabase upload error: StorageApiError: new row violates row-level security policy
+[00:30:25.965] Browser LOG     [v0] Upload response: {"error":"new row violates row-level security policy"}
+[00:30:25.965] Browser ERROR   [v0] Upload error: {}
+[00:30:26.937] Browser LOG     [v0] Submitting: Create new
+[00:30:27.323] Server  LOG     [v0] Creating model: "Rashmi karki"
+[00:30:27.397] Server  ERROR   [v0] Insert error: {}
+[00:30:27.397] Server  ERROR   [v0] Error creating model: {}
+[00:30:27.837] Browser LOG     [v0] Server response: {"error":"Failed to create model"}
+[00:30:27.837] Browser ERROR   [v0] Submit error: {}
+[00:30:34.307] Browser LOG     [v0] Submitting: Create new
+[00:30:34.674] Server  LOG     [v0] Creating model: "Rashmi karki"
+[00:30:34.728] Server  ERROR   [v0] Insert error: {}
+[00:30:34.728] Server  ERROR   [v0] Error creating model: {}
+[00:30:35.188] Browser LOG     [v0] Server response: {"error":"Failed to create model"}
+[00:30:35.188] Browser ERROR   [v0] Submit error: {}
+[00:34:02.066] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:34:02.067] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:34:02.067] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/","r":"https://v0.app/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775056604771} /_vercel/insights/view
+[00:37:01.726] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:37:01.726] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:37:01.726] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/","r":"https://v0.app/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775056783549} /_vercel/insights/view
+[00:37:59.364] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login color: rgb(120, 120, 120) color: inherit {"dp":"/admin/login","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775056843813} /_vercel/insights/view
+[00:39:27.539] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:39:27.539] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:39:27.539] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/","r":"https://v0.app/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775056930501} /_vercel/insights/view
+[00:39:37.850] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login color: rgb(120, 120, 120) color: inherit {"dp":"/admin/login","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775056943219} /_vercel/insights/view
+[00:39:42.784] Browser LOG     [v0] Loading models...
+[00:39:42.784] Browser LOG     [v0] Loading models...
+[00:39:42.784] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin color: rgb(120, 120, 120) color: inherit {"dp":"/admin","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775056948208} /_vercel/insights/view
+[00:39:43.193] Server  ERROR   [v0] Supabase error: {}
+[00:39:43.193] Server  ERROR   [v0] Error fetching models: {}
+[00:39:43.922] Browser LOG     [v0] Models loaded: {"error":"Failed to fetch models"}
+[00:39:44.007] Server  ERROR   [v0] Supabase error: {}
+[00:39:44.008] Server  ERROR   [v0] Error fetching models: {}
+[00:39:44.564] Browser LOG     [v0] Models loaded: {"error":"Failed to fetch models"}
+[00:39:50.306] Browser LOG     [v0] Uploading image...
+[00:39:51.009] Server  LOG     [v0] Uploading file: "images (10).jpeg" "Type:" "image/jpeg" "Size:" 17079
+[00:39:51.011] Server  LOG     [v0] Uploading to bucket: "1775056956952-8qo7u8.jpeg"
+[00:39:51.169] Server  ERROR   [v0] Supabase upload error: StorageApiError: new row violates row-level security policy
+[00:39:51.803] Browser LOG     [v0] Upload response: {"error":"new row violates row-level security policy"}
+[00:39:51.803] Browser ERROR   [v0] Upload error: {}
+[00:40:25.583] Server  ERROR   [v0] Supabase error: {}
+[00:40:25.584] Server  ERROR   [v0] Error fetching models: {}
+[00:40:27.676] Browser LOG     [v0] Loading models...
+[00:40:27.676] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:40:27.676] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/admin","route":"/admin"}
+[00:40:27.676] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin color: rgb(120, 120, 120) color: inherit {"dp":"/admin","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin","r":"https://v0.app/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775056990687} /_vercel/insights/view
+[00:40:27.676] Browser LOG     [v0] Models loaded: {"error":"Failed to fetch models"}
+[00:40:49.528] Server  ERROR   [v0] Supabase error: {}
+[00:40:49.529] Server  ERROR   [v0] Error fetching models: {}
+[00:40:50.625] Browser LOG     [v0] Loading models...
+[00:40:50.625] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:40:50.625] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/admin","route":"/admin"}
+[00:40:50.625] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin color: rgb(120, 120, 120) color: inherit {"dp":"/admin","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin","r":"https://v0.app/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775057014576} /_vercel/insights/view
+[00:40:50.625] Browser LOG     [v0] Models loaded: {"error":"Failed to fetch models"}
+[00:41:18.853] Browser LOG     [v0] Uploading image...
+[00:41:20.000] Server  LOG     [v0] Uploading file: "images (10).jpeg" "Type:" "image/jpeg" "Size:" 17079
+[00:41:20.002] Server  LOG     [v0] Uploading to bucket: "1775057045943-05sxa.jpeg"
+[00:41:20.241] Server  ERROR   [v0] Supabase upload error: StorageApiError: new row violates row-level security policy
+[00:41:20.834] Browser LOG     [v0] Upload response: {"error":"new row violates row-level security policy"}
+[00:41:20.834] Browser ERROR   [v0] Upload error: {}
+[00:41:21.638] Browser LOG     [v0] Submitting: Create new
+[00:41:22.019] Server  LOG     [v0] Creating model: "Rashmi pandey"
+[00:41:22.057] Server  ERROR   [v0] Insert error: {}
+[00:41:22.058] Server  ERROR   [v0] Error creating model: {}
+[00:41:22.506] Browser LOG     [v0] Server response: {"error":"Failed to create model"}
+[00:41:22.506] Browser ERROR   [v0] Submit error: {}
+[00:41:25.815] Browser LOG     [v0] Submitting: Create new
+[00:41:26.208] Server  LOG     [v0] Creating model: "Rashmi pandey"
+[00:41:26.299] Server  ERROR   [v0] Insert error: {}
+[00:41:26.300] Server  ERROR   [v0] Error creating model: {}
+[00:41:26.827] Browser LOG     [v0] Server response: {"error":"Failed to create model"}
+[00:41:26.827] Browser ERROR   [v0] Submit error: {}
+[00:41:31.173] Browser LOG     [v0] Submitting: Create new
+[00:41:31.522] Server  LOG     [v0] Creating model: "Rashmi pandey"
+[00:41:31.570] Server  ERROR   [v0] Insert error: {}
+[00:41:31.571] Server  ERROR   [v0] Error creating model: {}
+[00:41:32.164] Browser LOG     [v0] Server response: {"error":"Failed to create model"}
+[00:41:32.164] Browser ERROR   [v0] Submit error: {}

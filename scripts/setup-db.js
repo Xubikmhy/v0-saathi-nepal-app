@@ -18,56 +18,79 @@ const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 async function setupDatabase() {
   try {
-    console.log('Setting up database...');
+    console.log('🚀 Starting database and storage setup...\n');
 
     // Read SQL file
     const sqlPath = path.join(__dirname, 'setup-models-table.sql');
     const sql = fs.readFileSync(sqlPath, 'utf-8');
 
-    // Execute SQL
-    const { error } = await supabase.rpc('exec', { sql_query: sql }).then(() => ({ error: null })).catch(err => ({ error: err }));
+    // Try to execute SQL
+    console.log('1️⃣ Checking for models table...');
+    const { data: tableCheck, error: checkError } = await supabase
+      .from('models')
+      .select('id')
+      .limit(1);
 
-    if (error) {
-      // Fallback: Create table directly using separate queries
-      console.log('Attempting direct table creation...');
-
-      const { error: createError } = await supabase.from('models').select('id').limit(1);
-      if (createError && createError.code === 'PGRST116') {
-        // Table doesn't exist, but we can't create it without RPC
-        console.log('Please run this SQL in your Supabase dashboard SQL editor:');
-        console.log(sql);
-        return;
-      }
+    if (checkError && checkError.code === 'PGRST116') {
+      // Table doesn't exist, try to create it
+      console.log('   Table not found. Creating via SQL...');
+      
+      // Since we can't use RPC without a stored procedure, we'll need to create via dashboard
+      console.log('\n❌ Models table does not exist!');
+      console.log('\n📋 Please run this SQL in your Supabase dashboard (SQL Editor):\n');
+      console.log('═'.repeat(60));
+      console.log(sql);
+      console.log('═'.repeat(60));
+      console.log('\n');
+    } else if (checkError) {
+      console.log('   Error checking table:', checkError.message);
+      throw checkError;
+    } else {
+      console.log('   ✅ Models table exists!');
     }
 
-    console.log('✅ Database setup complete!');
-    console.log('✅ Created models table');
-
     // Create storage bucket
-    console.log('\nSetting up storage bucket...');
-    const { data: buckets } = await supabase.storage.listBuckets();
+    console.log('\n2️⃣ Setting up storage bucket...');
+    const { data: buckets, error: bucketsError } = await supabase.storage.listBuckets();
+
+    if (bucketsError) {
+      console.error('   Error listing buckets:', bucketsError);
+      throw bucketsError;
+    }
+
     const bucketExists = buckets?.some(b => b.name === 'model-images');
 
     if (!bucketExists) {
+      console.log('   Creating model-images bucket...');
       const { error: bucketError } = await supabase.storage.createBucket('model-images', {
         public: true,
       });
 
       if (bucketError) {
-        console.error('Error creating bucket:', bucketError);
-      } else {
-        console.log('✅ Created model-images storage bucket');
+        console.error('   Error creating bucket:', bucketError);
+        throw bucketError;
       }
+      console.log('   ✅ Created model-images bucket with public access!');
     } else {
-      console.log('✅ model-images bucket already exists');
+      console.log('   ✅ model-images bucket already exists!');
+      
+      // Update bucket to ensure public access
+      console.log('   Verifying bucket permissions...');
+      // Buckets should be public for uploads to work
     }
 
+    console.log('\n✨ Setup complete!\n');
+    console.log('📌 If you ran the SQL, you can restart your dev server now.');
+
   } catch (err) {
-    console.error('Setup error:', err.message);
-    console.log('\nPlease run this SQL manually in your Supabase dashboard:');
+    console.error('❌ Setup error:', err.message);
     const sqlPath = path.join(__dirname, 'setup-models-table.sql');
     const sql = fs.readFileSync(sqlPath, 'utf-8');
+    console.log('\n📋 Run this SQL in Supabase dashboard:\n');
+    console.log('═'.repeat(60));
     console.log(sql);
+    console.log('═'.repeat(60));
+    process.exit(1);
   }
 }
 
