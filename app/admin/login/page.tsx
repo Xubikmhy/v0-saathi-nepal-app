@@ -5,9 +5,6 @@ import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { AlertCircle } from 'lucide-react'
-
 export default function AdminLoginPage() {
   const router = useRouter()
   const [email, setEmail] = useState('')
@@ -59,11 +56,10 @@ export default function AdminLoginPage() {
           </CardHeader>
 
           {error && (
-            <div className="px-6">
-              <Alert variant="destructive">
-                <AlertCircle className="h-4 w-4" />
-                <AlertDescription>{error}</AlertDescription>
-              </Alert>
+            <div className="px-6 pt-4">
+              <div className="rounded-md bg-red-500/10 border border-red-500/20 p-3">
+                <p className="text-sm font-medium text-red-600">{error}</p>
+              </div>
             </div>
           )}
 
