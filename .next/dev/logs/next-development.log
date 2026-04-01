@@ -753,3 +753,43 @@ Expected a semicolon
 [00:10:49.450] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
 [00:10:49.450] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
 [00:10:49.450] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-lqq4mqrj6urwtyh4j0ln3y.vusercontent.net/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"https://vm-lqq4mqrj6urwtyh4j0ln3y.vusercontent.net/","r":"https://v0.app/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775055212978} /_vercel/insights/view
+[00:11:58.608] Server  LOG        Reload env: .env.development.local
+[00:13:06.280] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:13:06.280] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:13:06.280] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/","r":"https://v0.app/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775055350945} /_vercel/insights/view
+[00:14:58.210] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:14:58.210] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:14:58.210] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/","r":"https://v0.app/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775055460253} /_vercel/insights/view
+[00:15:12.860] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login color: rgb(120, 120, 120) color: inherit {"dp":"/admin/login","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775055478228} /_vercel/insights/view
+[00:15:55.606] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin color: rgb(120, 120, 120) color: inherit {"dp":"/admin","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775055521087} /_vercel/insights/view
+[00:15:56.363] Server  ERROR   Error fetching models: {}
+[00:15:57.196] Server  ERROR   Error fetching models: {}
+[00:16:18.084] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login color: rgb(120, 120, 120) color: inherit {"dp":"/admin/login","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775055543556} /_vercel/insights/view
+[00:23:06.538] Server  LOG      ✓ Compiled in 141ms
+[00:23:53.190] Browser LOG     [v0] Loading models...
+[00:23:53.190] Browser LOG     [v0] Loading models...
+[00:23:53.190] Browser LOG     %c[Vercel Web Analytics]%c [view] https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin color: rgb(120, 120, 120) color: inherit {"dp":"/admin","o":"https://vm-o0sc1v906tg84jv885b3rx.vusercontent.net/admin","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1775055998651} /_vercel/insights/view
+[00:23:53.654] Server  ERROR   [v0] Supabase error: {}
+[00:23:53.654] Server  ERROR   [v0] Error fetching models: {}
+[00:23:54.097] Browser LOG     [v0] Models loaded: {"error":"Failed to fetch models"}
+[00:23:54.496] Server  ERROR   [v0] Supabase error: {}
+[00:23:54.496] Server  ERROR   [v0] Error fetching models: {}
+[00:23:55.247] Browser LOG     [v0] Models loaded: {"error":"Failed to fetch models"}
+[00:24:07.523] Browser LOG     [v0] Uploading image...
+[00:24:34.596] Server  LOG     [v0] Uploading file: "file_00000000b95472089cb7c334dd712636 (3).png" "Type:" "image/png" "Size:" 2613091
+[00:24:34.602] Server  LOG     [v0] Uploading to bucket: "1775056040541-owlxw.png"
+[00:24:34.867] Server  ERROR   [v0] Supabase upload error: StorageApiError: new row violates row-level security policy
+[00:24:35.381] Browser LOG     [v0] Upload response: {"error":"new row violates row-level security policy"}
+[00:24:35.381] Browser ERROR   [v0] Upload error: {}
+[00:24:43.198] Browser LOG     [v0] Uploading image...
+[00:24:43.635] Server  LOG     [v0] Uploading file: "apple-icon.png" "Type:" "image/png" "Size:" 2626
+[00:24:43.638] Server  LOG     [v0] Uploading to bucket: "1775056049579-otyrqp.png"
+[00:24:43.719] Server  ERROR   [v0] Supabase upload error: StorageApiError: new row violates row-level security policy
+[00:24:44.193] Browser LOG     [v0] Upload response: {"error":"new row violates row-level security policy"}
+[00:24:44.193] Browser ERROR   [v0] Upload error: {}
+[00:24:47.575] Browser LOG     [v0] Submitting: Create new
+[00:24:47.904] Server  LOG     [v0] Creating model: "Ramila sherpa"
+[00:24:47.967] Server  ERROR   [v0] Insert error: {}
+[00:24:47.967] Server  ERROR   [v0] Error creating model: {}
+[00:24:48.422] Browser LOG     [v0] Server response: {"error":"Failed to create model"}
+[00:24:48.422] Browser ERROR   [v0] Submit error: {}
