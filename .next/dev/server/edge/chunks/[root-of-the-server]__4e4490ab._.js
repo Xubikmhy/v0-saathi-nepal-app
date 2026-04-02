@@ -43,18 +43,12 @@ async function updateSession(request) {
         }
     });
     const { data: { user } } = await supabase.auth.getUser();
-    // Protected admin routes
+    // Protected admin routes - check for simple admin session
     if (request.nextUrl.pathname.startsWith("/admin") && request.nextUrl.pathname !== "/admin/login") {
-        if (!user) {
+        const adminSession = request.cookies.get("admin_session");
+        if (!adminSession || adminSession.value !== "verified") {
             const url = request.nextUrl.clone();
-            url.pathname = "/auth/login";
-            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$exports$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NextResponse"].redirect(url);
-        }
-        // Check if user is admin
-        const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).single();
-        if (profile?.role !== "agency_admin") {
-            const url = request.nextUrl.clone();
-            url.pathname = "/";
+            url.pathname = "/admin/login";
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$exports$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NextResponse"].redirect(url);
         }
     }

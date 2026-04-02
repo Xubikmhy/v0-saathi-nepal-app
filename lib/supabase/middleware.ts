@@ -29,20 +29,13 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser()
 
-  // Protected admin routes
+  // Protected admin routes - check for simple admin session
   if (request.nextUrl.pathname.startsWith("/admin") && request.nextUrl.pathname !== "/admin/login") {
-    if (!user) {
+    const adminSession = request.cookies.get("admin_session")
+    
+    if (!adminSession || adminSession.value !== "verified") {
       const url = request.nextUrl.clone()
-      url.pathname = "/auth/login"
-      return NextResponse.redirect(url)
-    }
-
-    // Check if user is admin
-    const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).single()
-
-    if (profile?.role !== "agency_admin") {
-      const url = request.nextUrl.clone()
-      url.pathname = "/"
+      url.pathname = "/admin/login"
       return NextResponse.redirect(url)
     }
   }

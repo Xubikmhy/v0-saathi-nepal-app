@@ -49,11 +49,14 @@ export function AdminDashboard({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const handleLogout = async () => {
-    const supabase = createClient()
-    await supabase.auth.signOut()
-    router.push("/")
-    router.refresh()
-    toast.success("Logged out successfully")
+    try {
+      await fetch('/api/admin/logout', { method: 'POST' })
+      toast.success("Logged out successfully")
+      router.push("/admin/login")
+      router.refresh()
+    } catch (error) {
+      toast.error("Failed to logout")
+    }
   }
 
   const refreshData = async () => {
