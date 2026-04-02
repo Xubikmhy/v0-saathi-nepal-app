@@ -21,7 +21,7 @@ export function ImageUpload({
     onChange,
     onRemove,
     disabled,
-    bucket = process.env.NEXT_PUBLIC_UPLOADS_BUCKET || "uploads",
+    bucket = "model-images",
     multiple = false
 }: ImageUploadProps) {
     const [isUploading, setIsUploading] = useState(false)
@@ -37,27 +37,47 @@ export function ImageUpload({
 
         try {
             for (const file of Array.from(files)) {
+                // Validate file is actually an image
+                if (!file.type.startsWith('image/')) {
+                    throw new Error(`Invalid file type: ${file.type}. Only images are allowed.`)
+                }
+
                 const fileExt = file.name.split(".").pop()
-                const fileName = `${Math.random().toString(36).substring(2)}.${fileExt}`
+                const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExt}`
                 const filePath = `${fileName}`
 
-                const { error: uploadError } = await supabase.storage
+                console.log('[v0 upload] Uploading to bucket:', bucket, 'file:', fileName)
+
+                const { data, error: uploadError } = await supabase.storage
                     .from(bucket)
-                    .upload(filePath, file)
+                    .upload(filePath, file, {
+                        cacheControl: '3600',
+                        upsert: false
+                    })
 
                 if (uploadError) {
+                    console.error('[v0 upload] Upload failed:', uploadError)
                     throw uploadError
                 }
 
-                const { data } = supabase.storage.from(bucket).getPublicUrl(filePath)
-                newUrls.push(data.publicUrl)
+                console.log('[v0 upload] Upload successful:', data)
+
+                // Get public URL
+                const { data: publicUrlData } = supabase.storage.from(bucket).getPublicUrl(filePath)
+                const publicUrl = publicUrlData.publicUrl
+
+                console.log('[v0 upload] Public URL generated:', publicUrl)
+                newUrls.push(publicUrl)
             }
 
-            onChange(multiple ? [...value, ...newUrls] : newUrls)
-            toast.success("Image uploaded successfully")
+            // Update state with new URLs - this triggers immediate preview
+            const updatedUrls = multiple ? [...value, ...newUrls] : newUrls
+            onChange(updatedUrls)
+            toast.success(`Image${newUrls.length > 1 ? 's' : ''} uploaded successfully`)
         } catch (error: any) {
+            console.error('[v0 upload]', error)
             toast.error("Error uploading image", {
-                description: error.message
+                description: error?.message || "Unknown error occurred"
             })
         } finally {
             setIsUploading(false)
