@@ -18,9 +18,10 @@ const inter = Inter({
   variable: "--font-sans",
 })
 
-      <meta name="google-site-verification" content="B3BX8VYGgrI_a2hlNTX0h9BkCZpL7S-SsmcNQ_198Gk" />
 
-export const metadata: Metadata = {
+export const metadata: Metadata = { verification: {
+  google: "B3BX8VYGgrI_a2hlNTX0h9BkCZpL7S-SsmcNQ_198Gk",
+},
   title: "EscortNepal | Premium Nepali Escorts",
   description:
     "Discover stunning Nepali escorts for your events, photoshoots, and exclusive companionship. Premium verified profiles.",

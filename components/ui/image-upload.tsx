@@ -3,7 +3,6 @@
 import { useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { ImagePlus, X, Loader2 } from "lucide-react"
-import { createClient } from "@/lib/supabase/client"
 import { toast } from "sonner"
 import Image from "next/image"
 
@@ -21,7 +20,7 @@ export function ImageUpload({
     onChange,
     onRemove,
     disabled,
-    bucket = process.env.NEXT_PUBLIC_UPLOADS_BUCKET || "uploads",
+    bucket = "model-images",
     multiple = false
 }: ImageUploadProps) {
     const [isUploading, setIsUploading] = useState(false)
@@ -32,30 +31,37 @@ export function ImageUpload({
         if (!files || files.length === 0) return
 
         setIsUploading(true)
-        const supabase = createClient()
         const newUrls: string[] = []
 
         try {
             for (const file of Array.from(files)) {
-                const fileExt = file.name.split(".").pop()
-                const fileName = `${Math.random().toString(36).substring(2)}.${fileExt}`
-                const filePath = `${fileName}`
+                console.error("[upload fix] Starting upload for file:", file.name)
 
-                const { error: uploadError } = await supabase.storage
-                    .from(bucket)
-                    .upload(filePath, file)
+                // Upload via server API (bypasses RLS using service role key)
+                const formData = new FormData()
+                formData.append('file', file)
+                formData.append('bucket', bucket)
 
-                if (uploadError) {
-                    throw uploadError
+                const response = await fetch('/api/upload', {
+                    method: 'POST',
+                    body: formData,
+                })
+
+                if (!response.ok) {
+                    const errorData = await response.json()
+                    console.error("[upload fix] Upload error:", errorData)
+                    throw new Error(errorData.error || 'Upload failed')
                 }
 
-                const { data } = supabase.storage.from(bucket).getPublicUrl(filePath)
-                newUrls.push(data.publicUrl)
+                const { url } = await response.json()
+                console.error("[upload fix] Upload successful, URL:", url)
+                newUrls.push(url)
             }
 
             onChange(multiple ? [...value, ...newUrls] : newUrls)
             toast.success("Image uploaded successfully")
         } catch (error: any) {
+            console.error("[upload fix] Upload failed:", error.message || error)
             toast.error("Error uploading image", {
                 description: error.message
             })
