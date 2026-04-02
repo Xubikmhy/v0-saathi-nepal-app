@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from "next/server"
 
 export async function POST(request: NextRequest) {
   try {
@@ -9,24 +9,31 @@ export async function POST(request: NextRequest) {
 
     if (!adminEmail || !adminPassword) {
       return NextResponse.json(
-        { error: 'Admin credentials not configured' },
+        { error: "Admin credentials not configured" },
         { status: 500 }
       )
     }
 
     if (email === adminEmail && password === adminPassword) {
-      // Create a simple token (in production, use JWT)
-      const token = Buffer.from(`${email}:${Date.now()}`).toString('base64')
-      return NextResponse.json({ token })
+      const response = NextResponse.json({ success: true })
+
+      response.cookies.set("admin_session", "true", {
+        httpOnly: true,
+        secure: true,
+        path: "/",
+        maxAge: 60 * 60 * 24 * 7,
+      })
+
+      return response
     }
 
     return NextResponse.json(
-      { error: 'Invalid credentials' },
+      { error: "Invalid credentials" },
       { status: 401 }
     )
-  } catch (error) {
+  } catch {
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: "Internal server error" },
       { status: 500 }
     )
   }
