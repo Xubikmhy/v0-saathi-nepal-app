@@ -1,6 +1,5 @@
 'use client';
 
-import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
@@ -8,47 +7,41 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
+import { setClientSession } from '@/lib/sessionUtils';
 
 export default function AdminLoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const router = useRouter();
-    const supabase = createClient();
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
 
         try {
-            const { data, error } = await supabase.auth.signInWithPassword({
-                email,
-                password,
+            const response = await fetch('/api/admin/auth', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password }),
             });
 
-            if (error) {
-                throw error;
-            }
-
-            // Check if user has admin role
-            const { data: profile, error: profileError } = await supabase
-                .from('profiles')
-                .select('role')
-                .eq('id', data.session?.user.id)
-                .single();
-
-            if (profileError || profile?.role !== 'agency_admin') {
-                await supabase.auth.signOut();
-                toast.error('Unauthorized access. Admin privileges required.');
+            if (!response.ok) {
+                toast.error('Invalid credentials');
+                setLoading(false);
                 return;
             }
 
+            // Set session in localStorage
+            setClientSession();
             toast.success('Welcome back, Admin');
+            
+            // Delay slightly to ensure everything is set before navigation
+            await new Promise(resolve => setTimeout(resolve, 100));
             router.push('/admin');
             router.refresh();
         } catch (error: any) {
             toast.error(error.message || 'Failed to sign in');
-        } finally {
             setLoading(false);
         }
     };
@@ -76,7 +69,7 @@ export default function AdminLoginPage() {
                                 <Input
                                     id="email"
                                     type="email"
-                                    placeholder="admin@example.com"
+                                    placeholder="admin@escortnepal.com"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     disabled={loading}
