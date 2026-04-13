@@ -21,3 +21,10 @@ on images
 for insert
 to public
 with check (true);
+
+-- Allow public delete
+create policy "Allow public delete"
+on images
+for delete
+to public
+using (true);
