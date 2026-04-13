@@ -1,4 +1,171 @@
-[00:00:00.918] Server  WARN     ⚠ Minimum recommended TypeScript version is v5.1.0, older versions can potentially be incompatible with Next.js. Detected: 5.0.2
-[00:00:00.933] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.003] Server  LOG      ✓ Ready in 773ms
-[00:00:02.452] Server  LOG        Reload env: .env.development.local
+[00:00:00.845] Server  WARN     ⚠ Minimum recommended TypeScript version is v5.1.0, older versions can potentially be incompatible with Next.js. Detected: 5.0.2
+[00:00:00.859] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:00.928] Server  LOG      ✓ Ready in 697ms
+[00:00:10.491] Server  ERROR    ⨯ ./app/layout.tsx:21:13
+Parsing ecmascript source code failed
+  19 | })
+  20 |
+> 21 |       <meta name="google-site-verification" content="B3BX8VYGgrI_a2hlNTX0h9BkCZpL7S-SsmcNQ_198Gk" />
+     |             ^^^^
+  22 |
+  23 | export const metadata: Metadata = {
+  24 |   title: "EscortNepal | Premium Nepali Escorts",
+
+Expected a semicolon
+
+
+[00:00:14.998] Browser ERROR   uncaughtError: Error: ./app/layout.tsx:21:13
+Parsing ecmascript source code failed
+  19 | })
+  20 |
+> 21 |       <meta name="google-site-verification" content="B3BX8VYGgrI_a2hlNTX0h9BkCZpL7S-SsmcNQ_198Gk" />
+     |             ^^^^
+  22 |
+  23 | export const metadata: Metadata = {
+  24 |   title: "EscortNepal | Premium Nepali Escorts",
+
+Expected a semicolon
+
+
+[00:00:15.301] Browser ERROR   ./app/layout.tsx:21:13
+Parsing ecmascript source code failed
+  19 | })
+  20 |
+> 21 |       <meta name="google-site-verification" content="B3BX8VYGgrI_a2hlNTX0h9BkCZpL7S-SsmcNQ_198Gk" />
+     |             ^^^^
+  22 |
+  23 | export const metadata: Metadata = {
+  24 |   title: "EscortNepal | Premium Nepali Escorts",
+
+Expected a semicolon
+[00:00:15.459] Browser ERROR   ./app/layout.tsx:21:13
+Parsing ecmascript source code failed
+  19 | })
+  20 |
+> 21 |       <meta name="google-site-verification" content="B3BX8VYGgrI_a2hlNTX0h9BkCZpL7S-SsmcNQ_198Gk" />
+     |             ^^^^
+  22 |
+  23 | export const metadata: Metadata = {
+  24 |   title: "EscortNepal | Premium Nepali Escorts",
+
+Expected a semicolon
+[00:00:16.027] Browser ERROR   ./app/layout.tsx:21:13
+Parsing ecmascript source code failed
+  19 | })
+  20 |
+> 21 |       <meta name="google-site-verification" content="B3BX8VYGgrI_a2hlNTX0h9BkCZpL7S-SsmcNQ_198Gk" />
+     |             ^^^^
+  22 |
+  23 | export const metadata: Metadata = {
+  24 |   title: "EscortNepal | Premium Nepali Escorts",
+
+Expected a semicolon
+[00:00:28.500] Server  LOG      ✓ Compiled in 46ms
+[00:00:29.042] Browser ERROR   ./app/layout.tsx:21:13
+Parsing ecmascript source code failed
+  19 | })
+  20 |
+> 21 |       <meta name="google-site-verification" content="B3BX8VYGgrI_a2hlNTX0h9BkCZpL7S-SsmcNQ_198Gk" />
+     |             ^^^^
+  22 |
+  23 | export const metadata: Metadata = {
+  24 |   title: "EscortNepal | Premium Nepali Escorts",
+
+Expected a semicolon
+[00:00:29.179] Server  ERROR    ⨯ ./app/layout.tsx:21:13
+Parsing ecmascript source code failed
+  19 | })
+  20 |
+> 21 |       <meta name="google-site-verification" content="B3BX8VYGgrI_a2hlNTX0h9BkCZpL7S-SsmcNQ_198Gk" />
+     |             ^^^^
+  22 |
+  23 | export const metadata: Metadata = {
+  24 |   title: "EscortNepal | Premium Nepali Escorts",
+
+Expected a semicolon
+
+
+[00:00:29.292] Server  ERROR    ⨯ ./app/layout.tsx:21:13
+Parsing ecmascript source code failed
+  19 | })
+  20 |
+> 21 |       <meta name="google-site-verification" content="B3BX8VYGgrI_a2hlNTX0h9BkCZpL7S-SsmcNQ_198Gk" />
+     |             ^^^^
+  22 |
+  23 | export const metadata: Metadata = {
+  24 |   title: "EscortNepal | Premium Nepali Escorts",
+
+Expected a semicolon
+
+
+[00:00:29.409] Server  ERROR    ⨯ ./app/layout.tsx:21:13
+Parsing ecmascript source code failed
+  19 | })
+  20 |
+> 21 |       <meta name="google-site-verification" content="B3BX8VYGgrI_a2hlNTX0h9BkCZpL7S-SsmcNQ_198Gk" />
+     |             ^^^^
+  22 |
+  23 | export const metadata: Metadata = {
+  24 |   title: "EscortNepal | Premium Nepali Escorts",
+
+Expected a semicolon
+
+
+[00:00:29.588] Browser ERROR   ./app/layout.tsx:21:13
+Parsing ecmascript source code failed
+  19 | })
+  20 |
+> 21 |       <meta name="google-site-verification" content="B3BX8VYGgrI_a2hlNTX0h9BkCZpL7S-SsmcNQ_198Gk" />
+     |             ^^^^
+  22 |
+  23 | export const metadata: Metadata = {
+  24 |   title: "EscortNepal | Premium Nepali Escorts",
+
+Expected a semicolon
+[00:00:29.687] Browser ERROR   ./app/layout.tsx:21:13
+Parsing ecmascript source code failed
+  19 | })
+  20 |
+> 21 |       <meta name="google-site-verification" content="B3BX8VYGgrI_a2hlNTX0h9BkCZpL7S-SsmcNQ_198Gk" />
+     |             ^^^^
+  22 |
+  23 | export const metadata: Metadata = {
+  24 |   title: "EscortNepal | Premium Nepali Escorts",
+
+Expected a semicolon
+[00:00:32.060] Browser ERROR   uncaughtError: Error: ./app/layout.tsx:21:13
+Parsing ecmascript source code failed
+  19 | })
+  20 |
+> 21 |       <meta name="google-site-verification" content="B3BX8VYGgrI_a2hlNTX0h9BkCZpL7S-SsmcNQ_198Gk" />
+     |             ^^^^
+  22 |
+  23 | export const metadata: Metadata = {
+  24 |   title: "EscortNepal | Premium Nepali Escorts",
+
+Expected a semicolon
+
+
+[00:00:32.112] Browser ERROR   ./app/layout.tsx:21:13
+Parsing ecmascript source code failed
+  19 | })
+  20 |
+> 21 |       <meta name="google-site-verification" content="B3BX8VYGgrI_a2hlNTX0h9BkCZpL7S-SsmcNQ_198Gk" />
+     |             ^^^^
+  22 |
+  23 | export const metadata: Metadata = {
+  24 |   title: "EscortNepal | Premium Nepali Escorts",
+
+Expected a semicolon
+[00:00:32.468] Browser ERROR   ./app/layout.tsx:21:13
+Parsing ecmascript source code failed
+  19 | })
+  20 |
+> 21 |       <meta name="google-site-verification" content="B3BX8VYGgrI_a2hlNTX0h9BkCZpL7S-SsmcNQ_198Gk" />
+     |             ^^^^
+  22 |
+  23 | export const metadata: Metadata = {
+  24 |   title: "EscortNepal | Premium Nepali Escorts",
+
+Expected a semicolon
+[00:00:36.840] Server  LOG        Reload env: .env.development.local
