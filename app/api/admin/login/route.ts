@@ -1,20 +1,32 @@
 import { NextRequest, NextResponse } from "next/server"
+import bcrypt from "bcryptjs"
+import { supabase } from "@/lib/supabase"
+
+const ADMIN_EMAIL = "admin@saathi.com"
 
 export async function POST(request: NextRequest) {
   try {
     const { email, password } = await request.json()
 
-    const adminEmail = process.env.ADMIN_EMAIL
-    const adminPassword = process.env.ADMIN_PASSWORD
+    const { data, error } = await supabase
+      .from("admin_settings")
+      .select("password")
+      .eq("id", 1)
+      .single()
 
-    if (!adminEmail || !adminPassword) {
+    if (error || !data) {
       return NextResponse.json(
-        { error: "Admin credentials not configured" },
+        { error: "Password not configured" },
         { status: 500 }
       )
     }
 
-    if (email === adminEmail && password === adminPassword) {
+    const validPassword = await bcrypt.compare(
+      password,
+      data.password
+    )
+
+    if (email === ADMIN_EMAIL && validPassword) {
       const response = NextResponse.json({ success: true })
 
       response.cookies.set("admin_session", "true", {
