@@ -9,6 +9,19 @@ export interface Profile {
   updated_at: string
 }
 
+export interface Model {
+  id: string
+  name: string
+  age: number | null
+  city: string | null
+  bio: string | null
+  whatsapp: string | null
+  image_url: string | null
+  is_featured: boolean
+  created_at: string
+  updated_at: string
+}
+
 export interface Host {
   id: string
   name: string

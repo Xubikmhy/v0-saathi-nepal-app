@@ -6,48 +6,21 @@ import { ModelCard } from "@/components/model-card"
 import { createClient } from "@/lib/supabase/server"
 import { ArrowRight, Sparkles, Crown, Diamond, Star } from "lucide-react"
 
-import { MOCK_MODELS } from "@/lib/mock-data"
-import { AdBanner } from "@/components/ad-banner"
-import type { Ad } from "@/lib/types"
-
 export default async function HomePage() {
   const supabase = await createClient()
 
-  const { data: settings } = await supabase.from("site_settings").select("*").eq("id", 1).single()
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
-  let isAdmin = false
-  if (user) {
-    const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).single()
-    isAdmin = profile?.role === "agency_admin"
-  }
-
-  let { data: featuredModels } = await supabase.from("hosts").select("*").eq("status", "active").limit(6)
-
-  const { data: headerAds } = await supabase
-    .from("ads")
+  const { data: models } = await supabase
+    .from("models")
     .select("*")
-    .eq("position", "header")
-    .eq("is_active", true)
-    .limit(1)
-
-  if (!featuredModels || featuredModels.length === 0) {
-    featuredModels = MOCK_MODELS
-  }
+    .eq("is_featured", true)
+    .order("created_at", { ascending: false })
+    .limit(6)
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <SiteHeader settings={settings} isAuthenticated={!!user} isAdmin={isAdmin} />
+      <SiteHeader />
 
       <main className="flex-1">
-        {headerAds && headerAds.length > 0 && (
-          <div className="mx-auto max-w-7xl px-4 lg:px-8 pt-6">
-            <AdBanner ad={headerAds[0] as Ad} />
-          </div>
-        )}
         {/* Hero Section - Premium Dark */}
         <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
           {/* Background with overlay */}
@@ -63,13 +36,13 @@ export default async function HomePage() {
             </div>
 
             <h1 className="font-serif text-5xl font-bold tracking-wide text-foreground sm:text-6xl lg:text-7xl">
-              {settings?.hero_headline || "Discover Exquisite Nepali Beauty"}
+              Discover Exquisite Nepali Beauty
             </h1>
 
             <div className="mx-auto mt-6 h-1 w-40 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
 
             <p className="mx-auto mt-8 max-w-2xl text-xl font-medium tracking-wide text-foreground/80">
-              {settings?.hero_subheadline || "Premium models for your exclusive events and experiences"}
+              Premium models for your exclusive events and experiences
             </p>
 
             {/* Trust indicators */}
@@ -151,7 +124,7 @@ export default async function HomePage() {
         </section>
 
         {/* Featured Models Section */}
-        {featuredModels && featuredModels.length > 0 && (
+        {models && models.length > 0 && (
           <section className="py-24 border-t border-border/50">
             <div className="mx-auto max-w-7xl px-4 lg:px-8">
               <div className="mb-16 text-center">
@@ -162,7 +135,7 @@ export default async function HomePage() {
                 <div className="mx-auto mt-6 h-1 w-32 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
               </div>
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                {featuredModels.map((model) => (
+                {models.map((model) => (
                   <ModelCard key={model.id} model={model} />
                 ))}
               </div>
@@ -183,7 +156,7 @@ export default async function HomePage() {
         )}
       </main>
 
-      <SiteFooter settings={settings} />
+      <SiteFooter />
     </div>
   )
 }

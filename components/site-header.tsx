@@ -5,40 +5,24 @@ import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
-import type { SiteSettings } from "@/lib/types"
 
-interface SiteHeaderProps {
-  settings?: SiteSettings | null
-  isAuthenticated?: boolean
-  isAdmin?: boolean
-}
-
-export function SiteHeader({ settings, isAuthenticated, isAdmin }: SiteHeaderProps) {
+export function SiteHeader() {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const navigation = [
     { name: "Gallery", href: "/browse" },
     { name: "Discover", href: "/discover" },
+    { name: "Admin", href: "/admin/login" },
   ]
-
-  if (isAuthenticated) {
-    navigation.push({ name: "Dashboard", href: "/dashboard" })
-    navigation.push({ name: "Favorites", href: "/favorites" })
-    navigation.push({ name: "Profile", href: "/profile" })
-  }
-
-  if (isAdmin) {
-    navigation.push({ name: "Admin", href: "/admin" })
-  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
-          <img src="/logo.svg" alt="EscortNepal Logo" className="h-8 w-8" />
+          <img src="/logo.svg" alt="Logo" className="h-8 w-8" />
           <span className="font-serif text-xl font-semibold tracking-[0.15em] text-foreground uppercase">
-            {settings?.site_name || "EscortNepal"}
+            Models
           </span>
         </Link>
 
